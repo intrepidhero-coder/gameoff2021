@@ -35,6 +35,7 @@ func pewpewdie():
 	root.add_child(newBullet)
 	newBullet.world_position.x = world_position.x
 	newBullet.world_position.y = world_position.y
+	newBullet.position = newBullet.world_position - get_node("../Player").world_position
 	var a = attitude - PI/2
 	newBullet.velocity = Vector2(sin(a), -cos(a)) * newBullet.speed
 	newBullet.rotation = a

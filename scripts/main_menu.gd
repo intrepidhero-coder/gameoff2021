@@ -21,6 +21,7 @@ func _ready():
 
 func _on_Select_pressed():
 	# TODO: mission menu
+	parent.start_mission()
 	parent.setup_state(parent.GAME)
 
 func _on_Quit_pressed():

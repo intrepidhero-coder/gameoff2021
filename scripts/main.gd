@@ -24,34 +24,23 @@ func _ready():
 func setup_state(newstate):
 	# tear down old state
 	if state == MENU:
-		# hide the main menu
 		$MainMenu.hide()
 	elif state == GAME:
-		# dequeue player, baddies, bullets, allies
-		$Player.hide()
-		# get_tree().get_nodes_in_group("blah")
-		reset_scenario()
-	elif state == PAUSE:
-		# unpause the tree
-		# hide the in game menu
 		pass
+	elif state == PAUSE:
+		$GameMenu.hide()
+		get_tree().paused = false
 	elif state == BRIEF:
 		pass
 	# setup the new state
 	state = newstate
 	if state == MENU:
 		$MainMenu.show()
-		# set the camera position?
 	elif state == GAME:
-		# start scenario timer (for checking conditions)
-		$ScenarioEventTimer.start()
-		# reset the player
-		$Player.reset()
-		$Player.show()
-	elif state == PAUSE:
-		# pause the tree (except background)
-		# load the in game menu
 		pass
+	elif state == PAUSE:
+		get_tree().paused = true
+		$GameMenu.show()
 	elif state == BRIEF:
 		pass
 
@@ -63,6 +52,8 @@ func setup_scenario(scenario):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	# process input
+	get_input()
 	# update background
 	if state == GAME:
 		$ParallaxBackground.scroll_offset = -$Player.world_position
@@ -73,7 +64,16 @@ func _process(_delta):
 		pass
 
 func get_input():
-	pass
+
+	if state == MENU:
+		pass
+	elif state == GAME:
+		if Input.is_action_pressed("escape"):
+			setup_state(PAUSE)
+	elif state == PAUSE:
+		pass
+	elif state == BRIEF:
+		pass
 
 # checks for scenario events
 func _on_ScenarioEventTimer_timeout():
@@ -84,4 +84,16 @@ func _on_MissionResultTimer_timeout():
 	
 func quit():
 	get_tree().quit()
+	
+func end_mission():
+	# dequeue player, baddies, bullets, allies
+	$Player.hide()
+	# get_tree().get_nodes_in_group("blah")
+	reset_scenario()
 
+func start_mission():
+	# start scenario timer (for checking conditions)
+	$ScenarioEventTimer.start()
+	# reset the player
+	$Player.reset()
+	$Player.show()

@@ -11,6 +11,7 @@ var exploding = false
 func _ready():
 	# TODO: change this for the player's bullets
 	$Sprite.texture = preload("res://assets/blaster1.png")
+	pause_mode = Node.PAUSE_MODE_STOP
 
 func _process(delta):
 	var player = get_node("../Player")

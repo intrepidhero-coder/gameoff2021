@@ -32,7 +32,6 @@ func pewpewdie():
 	$PewPewCoolDown.start()
 	var root = get_tree().root
 	var newBullet = get_node("../PewPewBullet").create_instance()
-	root.add_child(newBullet)
 	newBullet.world_position.x = world_position.x
 	newBullet.world_position.y = world_position.y
 	newBullet.velocity = Vector2(sin(attitude), -cos(attitude)) * newBullet.speed
@@ -40,6 +39,8 @@ func pewpewdie():
 	newBullet.speed = 1000
 	newBullet.collision_layer = 2
 	newBullet.collision_mask = 2
+	root.add_child(newBullet)
+	newBullet.add_to_group("mission_despawn")
 	newBullet.show()
 	# TODO: add to a group
 

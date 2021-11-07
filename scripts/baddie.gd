@@ -15,7 +15,7 @@ export var world_position = Vector2()
 func _ready():
 	#position.x = get_viewport().size.x / 2
 	#position.y = get_viewport().size.y / 2
-	pass
+	pause_mode = Node.PAUSE_MODE_STOP
 
 func reset():
 	velocity = Vector2()
@@ -42,6 +42,7 @@ func pewpewdie():
 	newBullet.rotation = a
 	newBullet.speed = 1000
 	root.add_child(newBullet)
+	newBullet.add_to_group("mission_despawn")
 	newBullet.show()
 	# TODO: add to a group
 

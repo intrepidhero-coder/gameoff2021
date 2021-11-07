@@ -6,9 +6,23 @@ Made with Godot
 [X] spawn baddies according to mission events
 [X] Baddies track player
 [X] Baddies shoot at player
-[ ] bad bullets damage player
-[ ] good bullets damaged baddies
+[X] bad bullets damage player
+[X] good bullets damaged baddies
 [ ] God mode for testing
 
 [ ] "Select Mission" goes to mission selection page
 [X] in Game menu pulled up on escape
+[ ] add briefing scene, script stored in missionX.gd
+[ ] draw talking heads
+[ ] add standard wingmen
+[ ] add flocking wingmen (drones)
+[ ] draw drones
+[ ] add Little Dr. Baddies (slow)
+[ ] add Little Dr. weapons
+    each time a ship is hit with Little Dr. it spawns a new little Dr effect area (circle)
+    that is in the collision layer for little Dr projectiles
+    the circle starts at radius 1 and reaches radius 32? after 0.5s
+[ ] draw mothership
+[ ] add mothership scene
+[ ] add HUD (energy/health)
+[ ] support game controller

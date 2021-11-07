@@ -85,7 +85,7 @@ func _on_ScenarioEventTimer_timeout():
 		if event["kind"] == "spawn":
 			for f in range(event["number"]):
 				var s = get_node(event["scene"]).create_instance()
-				s.position = event["position"]
+				s.world_position = event["position"] + Vector2(randf() * 128 - 64, randf() * 128 - 64)
 				s.add_to_group(event["group"])
 				s.add_to_group("mission_despawn")
 				s.show()

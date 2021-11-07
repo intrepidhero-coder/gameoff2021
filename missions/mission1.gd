@@ -9,7 +9,7 @@ var events = {
 			"kind": "spawn", 
 			"scene": "Baddie", 
 			"number": 5, 
-			"position": Vector2(0, 0)
+			"position": Vector2(-1000, 500)
 		}
 	}
 

@@ -1,7 +1,7 @@
 extends Area2D
 
 
-export (int) var speed = 200
+export (int) var speed = 1000
 export var velocity = Vector2()
 export var damage = 10
 export var world_position = Vector2()
@@ -13,7 +13,7 @@ func _ready():
 
 func _process(delta):
 	world_position += velocity * delta
-	position = get_node("/Player").world_position - world_position
+	position = world_position - get_node("../Player").world_position
 
 func _on_Bullet_area_entered(area):
 	# disable further collisons

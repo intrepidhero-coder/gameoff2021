@@ -5,7 +5,7 @@ signal hit
 # Declare member variables here. Examples:
 export var velocity = Vector2()
 export var accel = Vector2()
-export var thrust = 1000
+export var thrust = 200
 export var attitude = 0
 export (int) var max_health = 100
 export (int) var health = max_health
@@ -33,8 +33,8 @@ func pewpewdie():
 	var root = get_tree().root
 	var newBullet = get_node("../PewPewBullet").create_instance()
 	root.add_child(newBullet)
-	newBullet.position.x = position.x
-	newBullet.position.y = position.y
+	newBullet.world_position.x = world_position.x
+	newBullet.world_position.y = world_position.y
 	newBullet.velocity = Vector2(sin(attitude), -cos(attitude)) * newBullet.speed
 	newBullet.rotation = attitude
 	newBullet.speed = 1000
@@ -59,13 +59,11 @@ func _process(delta):
 
 		rotation = attitude
 		if a != 0:
-			accel.x = -sin(attitude)
-			accel.y = cos(attitude)
-			accel *= a * 1000 *delta
+			accel = Vector2(-sin(attitude), cos(attitude)) * a * delta
 			velocity += accel
 		# clamp velocity at max absolute value
-		if velocity.length() > 300:
-			velocity = velocity.normalized() * 300
+		if velocity.length() > 500:
+			velocity = velocity.normalized() * 500
 		world_position += velocity * delta
 
 func _on_Player_area_entered(area):

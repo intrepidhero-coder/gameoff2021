@@ -58,6 +58,9 @@ visible = false
 [node name="GameMenu" parent="." instance=ExtResource( 7 )]
 visible = false
 
+[node name="PewPewBullet" parent="." instance_placeholder="res://scenes/bullet.tscn"]
+visible = false
+
 [connection signal="timeout" from="ScenarioEventTimer" to="." method="_on_ScenarioTimer_timeout"]
 [connection signal="timeout" from="ScenarioEventTimer" to="." method="_on_ScenarioEventTimer_timeout"]
 [connection signal="timeout" from="MissionResultTimer" to="." method="_on_MissionResultTimer_timeout"]

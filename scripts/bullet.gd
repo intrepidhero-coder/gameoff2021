@@ -7,13 +7,11 @@ export var damage = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	rotation = velocity.angle() + PI/2
 	# TODO: change this for the player's bullets
 	$Sprite.texture = preload("res://assets/blaster1.png")
 
 func _process(delta):
-	velocity = velocity.normalized() * speed
-	position += velocity * delta
+	position += velocity.normalized() * speed * delta
 
 func _on_Bullet_area_entered(area):
 	# disable further collisons

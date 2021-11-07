@@ -28,16 +28,18 @@ func pewpewdie():
 	if not $PewPewCoolDown.is_stopped():
 		return
 	$PewPewCoolDown.start()
-	var newBullet = $PewPewBullet.instance()
-	newBullet.show()
+	var root = get_tree().root
+	var newBullet = get_node("../PewPewBullet").create_instance()
+	root.add_child(newBullet)
 	newBullet.position.x = position.x
 	newBullet.position.y = position.y
 	newBullet.velocity.x = sin(attitude)
 	newBullet.velocity.y = -cos(attitude)
+	newBullet.rotation = newBullet.velocity.angle() + PI/2
 	newBullet.speed = 1000
 	newBullet.collision_layer = 0b100000000
 	newBullet.collision_mask = 1
-	$"..".add_child(newBullet)
+	newBullet.show()
 	# TODO: add to a group
 
 func _process(delta):

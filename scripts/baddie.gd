@@ -10,6 +10,7 @@ export var attitude = 0
 export (int) var max_health = 100
 export (int) var health = max_health
 export var world_position = Vector2()
+var dead = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -80,16 +81,9 @@ func _process(delta):
 			velocity = velocity.normalized() * 300
 		world_position += velocity * delta
 	position = world_position - player.world_position
-
-func _on_Player_area_entered(area):
-	#$CollisionShape2D.set_deferred("disabled", true)
-	health -= area.damage
-	if health <= 0:
-		die()
 		
 func die():
-	velocity.x = 0
-	velocity.y = 0
+	$Sprite.hide()
 	$ExplosionParticles.emitting = true
 	$DeathTimer.start()
 	$CollisionShape2D.set_deferred("disabled", true)
@@ -100,3 +94,9 @@ func _on_DeathTimer_timeout():
 
 func _on_PewPewCoolDown_timeout():
 	$PewPewCoolDown.stop()
+
+
+func _on_Baddie_area_shape_entered(area_id, area, area_shape, local_shape):
+	health -= area.damage
+	if health <= 0:
+		die()

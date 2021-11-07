@@ -37,7 +37,7 @@ func pewpewdie():
 	newBullet.velocity = Vector2(sin(attitude), -cos(attitude)) * newBullet.speed
 	newBullet.rotation = attitude
 	newBullet.speed = 1000
-	newBullet.collision_layer = 2
+	newBullet.collision_layer = 256
 	newBullet.collision_mask = 2
 	root.add_child(newBullet)
 	newBullet.add_to_group("mission_despawn")
@@ -74,12 +74,14 @@ func _process(delta):
 func die():
 	velocity.x = 0
 	velocity.y = 0
+	$Sprite.hide()
 	$ExplosionParticles.emitting = true
 	$DeathTimer.start()
 	$CollisionShape2D.set_deferred("disabled", true)
 	
 func _on_DeathTimer_timeout():
 	$DeathTimer.stop()
+	$"..".end_mission()
 	$"..".setup_state($"..".MENU)
 
 func _on_PewPewCoolDown_timeout():
@@ -88,6 +90,6 @@ func _on_PewPewCoolDown_timeout():
 
 func _on_Player_area_shape_entered(area_id, area, area_shape, local_shape):
 	#$CollisionShape2D.set_deferred("disabled", true)
-	#health -= area.damage
+	health -= area.damage
 	if health <= 0:
 		die()

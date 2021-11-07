@@ -9,6 +9,7 @@
 [ext_resource path="res://scenes/in_game_menu.tscn" type="PackedScene" id=7]
 
 [node name="Main" type="Node2D"]
+pause_mode = 2
 script = ExtResource( 5 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
@@ -64,6 +65,9 @@ visible = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
+
+[node name="Baddie" parent="." instance_placeholder="res://scenes/baddie.tscn"]
+visible = false
 
 [connection signal="timeout" from="ScenarioEventTimer" to="." method="_on_ScenarioEventTimer_timeout"]
 [connection signal="timeout" from="ScenarioEventTimer" to="." method="_on_ScenarioTimer_timeout"]

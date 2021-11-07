@@ -6,18 +6,20 @@ const PAUSE = 2
 const BRIEF = 3
 
 var state = MENU
-var chosen_scenario = 1
-var scenario_conditions = [preload("res://missions/mission1.gd")]
+var chosen_scenario = 0
+var scenario_conditions = [
+	preload("res://missions/mission1.gd").new()
+]
 var scenario_elapsed_time = 0
 
 func reset_scenario():
-	chosen_scenario = 1
-	scenario_conditions = null
+	chosen_scenario = 0
 	scenario_elapsed_time = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# load the scenarios
+	reset_scenario()
 	setup_state(MENU)
 
 # call this on state transitions
@@ -64,20 +66,31 @@ func _process(_delta):
 		pass
 
 func get_input():
-
 	if state == MENU:
 		pass
 	elif state == GAME:
-		if Input.is_action_pressed("escape"):
+		if Input.is_action_just_pressed("escape"):
 			setup_state(PAUSE)
 	elif state == PAUSE:
-		pass
+		if Input.is_action_just_pressed("escape"):
+			setup_state(GAME)
 	elif state == BRIEF:
 		pass
 
 # checks for scenario events
 func _on_ScenarioEventTimer_timeout():
-	pass # Replace with function body.
+	var scenario = scenario_conditions[chosen_scenario]
+	if scenario_elapsed_time in scenario.events:
+		var event = scenario.events[scenario_elapsed_time]
+		if event["kind"] == "spawn":
+			for f in range(event["number"]):
+				var s = get_node(event["scene"]).create_instance()
+				s.position = event["position"]
+				s.add_to_group(event["group"])
+				s.add_to_group("mission_despawn")
+				s.show()
+				add_child(s)
+	scenario_elapsed_time += 1
 
 func _on_MissionResultTimer_timeout():
 	setup_state(MENU)
@@ -86,10 +99,13 @@ func quit():
 	get_tree().quit()
 	
 func end_mission():
-	# dequeue player, baddies, bullets, allies
+	$ScenarioEventTimer.stop()
 	$Player.hide()
-	# get_tree().get_nodes_in_group("blah")
+	$Player.reset()
 	reset_scenario()
+	# despawn any left over entities
+	for node in get_tree().get_nodes_in_group("mission_despawn"):
+		node.queue_free()
 
 func start_mission():
 	# start scenario timer (for checking conditions)

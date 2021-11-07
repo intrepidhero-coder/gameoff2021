@@ -7,9 +7,9 @@ var events = {
 	1: {
 			"group": "alpha",
 			"kind": "spawn", 
-			"scene": "baddie", 
+			"scene": "Baddie", 
 			"number": 5, 
-			"position": [0, 0]
+			"position": Vector2(0, 0)
 		}
 	}
 

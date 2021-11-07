@@ -35,8 +35,9 @@ func pewpewdie():
 	root.add_child(newBullet)
 	newBullet.world_position.x = world_position.x
 	newBullet.world_position.y = world_position.y
-	newBullet.velocity = Vector2(sin(attitude), -cos(attitude)) * newBullet.speed
-	newBullet.rotation = attitude
+	var a = attitude - PI/2
+	newBullet.velocity = Vector2(sin(a), -cos(a)) * newBullet.speed
+	newBullet.rotation = a
 	newBullet.speed = 1000
 	newBullet.collision_layer = 0b100000000
 	newBullet.collision_mask = 1
@@ -62,17 +63,21 @@ func _process(delta):
 			attitude = attitude - (2*PI)
 		if attitude < -PI:
 			attitude = attitude + (2*PI)
-		#a = thrust
-		#pewpewdie()
+		var d = world_position.distance_to(player.world_position)
+		if d > 10:
+			a = thrust
+		if d < 400:
+			pewpewdie()
 		rotation = attitude
 		if a != 0:
-			accel = Vector2(-sin(attitude), cos(attitude)) * a * delta
+			var theta = attitude - PI/2
+			accel = Vector2(sin(theta), -cos(theta)) * a * delta
 			velocity += accel
 		# clamp velocity at max absolute value
-		if velocity.length() > 500:
-			velocity = velocity.normalized() * 500
+		if velocity.length() > 300:
+			velocity = velocity.normalized() * 300
 		world_position += velocity * delta
-	position = world_position - get_node("../Player").world_position
+	position = world_position - player.world_position
 
 func _on_Player_area_entered(area):
 	#$CollisionShape2D.set_deferred("disabled", true)

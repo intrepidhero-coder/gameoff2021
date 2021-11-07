@@ -38,8 +38,8 @@ func pewpewdie():
 	newBullet.velocity = Vector2(sin(attitude), -cos(attitude)) * newBullet.speed
 	newBullet.rotation = attitude
 	newBullet.speed = 1000
-	newBullet.collision_layer = 0b100000000
-	newBullet.collision_mask = 1
+	newBullet.collision_layer = 2
+	newBullet.collision_mask = 2
 	newBullet.show()
 	# TODO: add to a group
 
@@ -69,12 +69,6 @@ func _process(delta):
 		if velocity.length() > 500:
 			velocity = velocity.normalized() * 500
 		world_position += velocity * delta
-
-func _on_Player_area_entered(area):
-	#$CollisionShape2D.set_deferred("disabled", true)
-	health -= area.damage
-	if health <= 0:
-		die()
 		
 func die():
 	velocity.x = 0
@@ -89,3 +83,10 @@ func _on_DeathTimer_timeout():
 
 func _on_PewPewCoolDown_timeout():
 	$PewPewCoolDown.stop()
+
+
+func _on_Player_area_shape_entered(area_id, area, area_shape, local_shape):
+	#$CollisionShape2D.set_deferred("disabled", true)
+	#health -= area.damage
+	if health <= 0:
+		die()

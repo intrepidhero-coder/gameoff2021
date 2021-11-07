@@ -32,7 +32,8 @@ func pewpewdie():
 	$PewPewCoolDown.start()
 	var root = get_tree().root
 	var newBullet = get_node("../PewPewBullet").create_instance()
-	root.add_child(newBullet)
+	newBullet.collision_layer = 512
+	newBullet.collision_mask = 1
 	newBullet.world_position.x = world_position.x
 	newBullet.world_position.y = world_position.y
 	newBullet.position = newBullet.world_position - get_node("../Player").world_position
@@ -40,8 +41,7 @@ func pewpewdie():
 	newBullet.velocity = Vector2(sin(a), -cos(a)) * newBullet.speed
 	newBullet.rotation = a
 	newBullet.speed = 1000
-	newBullet.collision_layer = 0b100000000
-	newBullet.collision_mask = 1
+	root.add_child(newBullet)
 	newBullet.show()
 	# TODO: add to a group
 

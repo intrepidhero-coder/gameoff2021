@@ -3,9 +3,9 @@ Made with Godot
 
 
 [ ] Fix parallax background. Looks like there are multiple layers that toggle on/off?!
-[ ] spawn baddies according to mission events
-[ ] Baddies track player
-[ ] Baddies shoot at player
+[X] spawn baddies according to mission events
+[X] Baddies track player
+[X] Baddies shoot at player
 [ ] bad bullets damage player
 [ ] good bullets damaged baddies
 [ ] God mode for testing

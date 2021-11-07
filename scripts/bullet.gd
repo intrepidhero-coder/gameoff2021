@@ -5,6 +5,7 @@ export (int) var speed = 1000
 export var velocity = Vector2()
 export var damage = 10
 export var world_position = Vector2()
+var exploding = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,8 +13,13 @@ func _ready():
 	$Sprite.texture = preload("res://assets/blaster1.png")
 
 func _process(delta):
-	world_position += velocity * delta
-	position = world_position - get_node("../Player").world_position
+	var player = get_node("../Player")
+	if not exploding:
+		world_position += velocity * delta
+		position = world_position - player.world_position
+	else:
+		#position = Vector2(0, 0)
+		pass
 
 func _on_Bullet_area_entered(area):
 	# disable further collisons
@@ -22,7 +28,8 @@ func _on_Bullet_area_entered(area):
 	$Sprite.hide()
 	velocity.x = 0
 	velocity.y = 0
-	$Timer.start()
+	$ExplosionTimer.start()
+	exploding = true
 
 func _on_ExplosionTimer_timeout():
 	queue_free()

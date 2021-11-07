@@ -44,10 +44,25 @@ func pewpewdie():
 	# TODO: add to a group
 
 func _process(delta):
+	var player = get_node("../Player")
 	if health > 0:
 		var a = 0
-		# attitude = 
-		# a = thrust
+		var heading = world_position.angle_to_point(player.world_position)
+		$Label.text = "%.2f %.2f" % [attitude, heading]
+		var change = 1 # default to turn clockwise
+		if heading < attitude:
+			change = -1
+		if abs(heading - attitude) > PI:
+			change *= -1
+		if abs(heading - attitude) < PI / 32:
+			change = 0
+		attitude += (2*PI) * delta * change
+		# keep attitude between -PI and PI
+		if attitude > PI:
+			attitude = attitude - (2*PI)
+		if attitude < -PI:
+			attitude = attitude + (2*PI)
+		#a = thrust
 		#pewpewdie()
 		rotation = attitude
 		if a != 0:

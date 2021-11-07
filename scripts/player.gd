@@ -56,7 +56,11 @@ func _process(delta):
 			a = thrust
 		if Input.is_action_pressed("action"):
 			pewpewdie()
-
+		# keep attitude between -PI and PI
+		if attitude > PI:
+			attitude = attitude - (2*PI)
+		if attitude < -PI:
+			attitude = attitude + (2*PI)
 		rotation = attitude
 		if a != 0:
 			accel = Vector2(-sin(attitude), cos(attitude)) * a * delta

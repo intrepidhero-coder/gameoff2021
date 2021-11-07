@@ -9,11 +9,13 @@ export var thrust = 1000
 export var attitude = 0
 export (int) var max_health = 100
 export (int) var health = max_health
+export var world_position = Vector2()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	position.x = get_viewport().size.x / 2
-	position.y = get_viewport().size.y / 2
+	#position.x = get_viewport().size.x / 2
+	#position.y = get_viewport().size.y / 2
+	pass
 
 func reset():
 	velocity = Vector2()
@@ -33,9 +35,8 @@ func pewpewdie():
 	root.add_child(newBullet)
 	newBullet.position.x = position.x
 	newBullet.position.y = position.y
-	newBullet.velocity.x = sin(attitude)
-	newBullet.velocity.y = -cos(attitude)
-	newBullet.rotation = newBullet.velocity.angle() + PI/2
+	newBullet.velocity = Vector2(sin(attitude), -cos(attitude)) * newBullet.speed
+	newBullet.rotation = attitude
 	newBullet.speed = 1000
 	newBullet.collision_layer = 0b100000000
 	newBullet.collision_mask = 1
@@ -65,6 +66,7 @@ func _process(delta):
 		# clamp velocity at max absolute value
 		if velocity.length() > 300:
 			velocity = velocity.normalized() * 300
+		world_position += velocity * delta
 
 func _on_Player_area_entered(area):
 	#$CollisionShape2D.set_deferred("disabled", true)

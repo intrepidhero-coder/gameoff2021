@@ -4,6 +4,7 @@ extends Area2D
 export (int) var speed = 200
 export var velocity = Vector2()
 export var damage = 10
+export var world_position = Vector2()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,7 +12,8 @@ func _ready():
 	$Sprite.texture = preload("res://assets/blaster1.png")
 
 func _process(delta):
-	position += velocity.normalized() * speed * delta
+	world_position += velocity * delta
+	position = get_node("/Player").world_position - world_position
 
 func _on_Bullet_area_entered(area):
 	# disable further collisons

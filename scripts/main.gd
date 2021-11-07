@@ -65,8 +65,7 @@ func setup_scenario(scenario):
 func _process(_delta):
 	# update background
 	if state == GAME:
-		var scroll = -$Player.velocity / 100
-		$ParallaxBackground.scroll_offset += scroll
+		$ParallaxBackground.scroll_offset = -$Player.world_position
 	elif state == MENU:
 		var scroll = Vector2(0, 2)
 		$ParallaxBackground.scroll_offset += scroll

@@ -32,6 +32,7 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 4096, 2048 )
 
 [node name="ScenarioEventTimer" type="Timer" parent="."]
+pause_mode = 1
 
 [node name="GameResultLabel" type="Label" parent="."]
 visible = false
@@ -47,27 +48,35 @@ __meta__ = {
 }
 
 [node name="MissionResultTimer" type="Timer" parent="."]
+pause_mode = 1
 wait_time = 10.0
 one_shot = true
 
-[node name="MainMenu" parent="." instance=ExtResource( 6 )]
-visible = false
-
 [node name="Player" parent="." instance=ExtResource( 3 )]
+pause_mode = 1
 visible = false
 gravity = 0.0
 
-[node name="GameMenu" parent="." instance=ExtResource( 7 )]
-visible = false
-
 [node name="PewPewBullet" parent="." instance_placeholder="res://scenes/bullet.tscn"]
+pause_mode = 1
 visible = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 
 [node name="Baddie" parent="." instance_placeholder="res://scenes/baddie.tscn"]
+pause_mode = 1
 visible = false
+
+[node name="MainMenu" parent="." instance=ExtResource( 6 )]
+visible = false
+margin_right = 250.0
+margin_bottom = 82.0
+
+[node name="GameMenu" parent="." instance=ExtResource( 7 )]
+visible = false
+margin_right = 199.0
+margin_bottom = 82.0
 
 [connection signal="timeout" from="ScenarioEventTimer" to="." method="_on_ScenarioEventTimer_timeout"]
 [connection signal="timeout" from="ScenarioEventTimer" to="." method="_on_ScenarioTimer_timeout"]

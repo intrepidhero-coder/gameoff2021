@@ -31,6 +31,7 @@ func pewpewdie():
 	if not $PewPewCoolDown.is_stopped():
 		return
 	$PewPewCoolDown.start()
+	$AudioStreamPlayer2D.play()
 	var root = get_tree().root
 	var newBullet = get_node("../PewPewBullet").create_instance()
 	newBullet.world_position.x = world_position.x
@@ -88,6 +89,7 @@ func _on_DeathTimer_timeout():
 
 func _on_PewPewCoolDown_timeout():
 	$PewPewCoolDown.stop()
+	$AudioStreamPlayer2D.stop()
 
 
 func _on_Player_area_shape_entered(area_id, area, area_shape, local_shape):

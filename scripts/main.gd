@@ -102,6 +102,7 @@ func end_mission():
 	$ScenarioEventTimer.stop()
 	$Player.hide()
 	$Player.reset()
+	$HUD.hide()
 	reset_scenario()
 	# despawn any left over entities
 	for node in get_tree().get_nodes_in_group("mission_despawn"):
@@ -113,3 +114,5 @@ func start_mission():
 	# reset the player
 	$Player.reset()
 	$Player.show()
+	$HUD.show()
+

@@ -24,6 +24,7 @@ func reset():
 	attitude = 0
 	max_health = 100
 	health = max_health
+	$Sprite.show()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func pewpewdie():
@@ -45,6 +46,7 @@ func pewpewdie():
 	# TODO: add to a group
 
 func _process(delta):
+	$".."/HUD.set_health(health)
 	if health > 0:
 		var a = 0
 		if Input.is_action_pressed("right"):

@@ -1,14 +1,12 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scripts/baddie.gd" type="Script" id=1]
-[ext_resource path="res://assets/baddie1.png" type="Texture" id=2]
-[ext_resource path="res://assets/blast1.mp3" type="AudioStream" id=3]
+[ext_resource path="res://assets/drone1.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
 
-[node name="Baddie" type="Area2D"]
-collision_layer = 2
-collision_mask = 256
+[node name="Drone" type="Area2D"]
+collision_mask = 512
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -46,9 +44,6 @@ margin_bottom = 13.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 3 )
 
 [connection signal="area_shape_entered" from="." to="." method="_on_Baddie_area_shape_entered"]
 [connection signal="timeout" from="PewPewCoolDown" to="." method="_on_PewPewCoolDown_timeout"]

@@ -53,11 +53,6 @@ pause_mode = 1
 wait_time = 10.0
 one_shot = true
 
-[node name="HUD" parent="." instance=ExtResource( 8 )]
-pause_mode = 1
-visible = false
-margin_right = 561.0
-
 [node name="Player" parent="." instance=ExtResource( 3 )]
 pause_mode = 1
 visible = false
@@ -71,8 +66,17 @@ visible = false
 pause_mode = 1
 visible = false
 
+[node name="Drone" parent="." instance_placeholder="res://scenes/drone.tscn"]
+
+[node name="FlockController" parent="." instance_placeholder="res://scenes/flock_controller.tscn"]
+
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
+
+[node name="HUD" parent="." instance=ExtResource( 8 )]
+pause_mode = 1
+visible = false
+margin_right = 561.0
 
 [node name="MainMenu" parent="." instance=ExtResource( 6 )]
 visible = false

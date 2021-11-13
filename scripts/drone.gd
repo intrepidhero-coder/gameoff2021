@@ -19,10 +19,14 @@ func _ready():
 	#position.y = get_viewport().size.y / 2
 	pause_mode = Node.PAUSE_MODE_STOP
 
+func init(pos, args := null):
+	reset()
+	world_position = pos
+
 func reset():
 	velocity = Vector2()
 	accel = Vector2()
-	thrust = 1000
+	thrust = 400
 	attitude = 0
 	max_health = 100
 	health = max_health
@@ -32,7 +36,7 @@ func pewpewdie():
 	if not $PewPewCoolDown.is_stopped():
 		return
 	$PewPewCoolDown.start()
-	$AudioStreamPlayer2D.play()
+	#$AudioStreamPlayer2D.play()
 	var root = get_tree().root
 	var newBullet = get_node("../PewPewBullet").create_instance()
 	newBullet.setSprite(1)
@@ -51,11 +55,13 @@ func pewpewdie():
 	# TODO: add to a group
 
 func _process(delta):
-	var target
+	var target = null
 	var player = get_node("../Player")
 	if controller:
-		target = controller.target.world_position
-	if health > 0:
+		if controller.target:
+			if not controller.target.dead:
+				target = controller.target.world_position
+	if health > 0 and target:
 		var a = 0
 		var heading = world_position.angle_to_point(target)
 		$Label.text = "%.2f %.2f" % [attitude, heading]
@@ -89,6 +95,7 @@ func _process(delta):
 	position = world_position - player.world_position
 		
 func die():
+	dead = true
 	$Sprite.hide()
 	$ExplosionParticles.emitting = true
 	$DeathTimer.start()
@@ -100,7 +107,7 @@ func _on_DeathTimer_timeout():
 
 func _on_PewPewCoolDown_timeout():
 	$PewPewCoolDown.stop()
-	$AudioStreamPlayer2D.stop()
+	#$AudioStreamPlayer2D.stop()
 
 func _on_Drone_area_shape_entered(area_id, area, area_shape, local_shape):
 	health -= area.damage

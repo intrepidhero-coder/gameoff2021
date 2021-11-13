@@ -17,11 +17,15 @@ func _ready():
 	#position.x = get_viewport().size.x / 2
 	#position.y = get_viewport().size.y / 2
 	pause_mode = Node.PAUSE_MODE_STOP
+	
+func init(pos, args := null):
+	reset()
+	world_position = pos
 
 func reset():
 	velocity = Vector2()
 	accel = Vector2()
-	thrust = 1000
+	thrust = 200
 	attitude = 0
 	max_health = 100
 	health = max_health
@@ -84,6 +88,7 @@ func _process(delta):
 	position = world_position - player.world_position
 		
 func die():
+	dead = true
 	$Sprite.hide()
 	$ExplosionParticles.emitting = true
 	$DeathTimer.start()
@@ -91,7 +96,11 @@ func die():
 	
 func _on_DeathTimer_timeout():
 	$DeathTimer.stop()
-	queue_free()
+	$ExplosionParticles.emitting = false
+	# I was freeing these nodes but that caused problems
+	# with other nodes trying to refer them for targeting
+	# they should still be freed at the end of the mission
+	#queue_free()
 
 func _on_PewPewCoolDown_timeout():
 	$PewPewCoolDown.stop()

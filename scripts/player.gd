@@ -34,6 +34,7 @@ func pewpewdie():
 	$AudioStreamPlayer2D.play()
 	var root = get_tree().root
 	var newBullet = get_node("../PewPewBullet").create_instance()
+	newBullet.setSprite(1)
 	newBullet.world_position.x = world_position.x
 	newBullet.world_position.y = world_position.y
 	newBullet.velocity = Vector2(sin(attitude), -cos(attitude)) * newBullet.speed

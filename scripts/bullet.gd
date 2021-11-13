@@ -6,12 +6,16 @@ export var velocity = Vector2()
 export var damage = 10
 export var world_position = Vector2()
 var exploding = false
+var flavors = [preload("res://assets/blaster1.png"), preload("res://assets/blaster2.png")]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# TODO: change this for the player's bullets
-	$Sprite.texture = preload("res://assets/blaster1.png")
+	setSprite(0)
 	pause_mode = Node.PAUSE_MODE_STOP
+	
+func setSprite(num):
+	$Sprite.texture = flavors[num]
 
 func _process(delta):
 	var player = get_node("../Player")

@@ -26,3 +26,8 @@ func _on_Select_pressed():
 
 func _on_Quit_pressed():
 	parent.quit()
+
+func _on_Test_Mode_pressed():
+	parent.start_mission()
+	parent.setup_state(parent.GAME)
+	$"../Player".god_mode = true

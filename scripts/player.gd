@@ -10,6 +10,7 @@ export var attitude = 0
 export (int) var max_health = 100
 export (int) var health = max_health
 export var world_position = Vector2()
+var god_mode = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -95,6 +96,7 @@ func _on_PewPewCoolDown_timeout():
 
 func _on_Player_area_shape_entered(area_id, area, area_shape, local_shape):
 	#$CollisionShape2D.set_deferred("disabled", true)
-	health -= area.damage
-	if health <= 0:
-		die()
+	if not god_mode:
+		health -= area.damage
+		if health <= 0:
+			die()

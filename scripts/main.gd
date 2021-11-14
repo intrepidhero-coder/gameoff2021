@@ -36,7 +36,8 @@ func setup_state(newstate):
 		$GameMenu.hide()
 		get_tree().paused = false
 	elif state == BRIEF:
-		pass
+		$Briefing.hide()
+		start_mission()
 	# setup the new state
 	state = newstate
 	if state == MENU:
@@ -49,13 +50,12 @@ func setup_state(newstate):
 		get_tree().paused = true
 		$GameMenu.show()
 	elif state == BRIEF:
-		pass
+		$Briefing.speech = scenario_conditions[chosen_scenario].speech
+		$Briefing.reset()
+		$Briefing.show()
 
-func setup_scenario(scenario):
-	# load scenario from json
-	# instance all nodes
-	# hide or show as appropriate
-	pass
+func setup_scenario(scenario: int):
+	chosen_scenario = scenario
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):

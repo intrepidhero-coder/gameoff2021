@@ -1,4 +1,4 @@
-extends Node2D
+extends ReferenceRect
 
 # Actors
 const QUEEN = 1
@@ -20,44 +20,49 @@ var current_line = 0
 var talking_poses = ["idle", "antenna", "arms", "blink", "mandibles", "tilt"]
 var idle_poses = ["idle", "blink", "antenna"]
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
+var parent = null
+var queen_sprite = null
+var player_sprite = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	reset()
-
+	#reset()
+	parent = get_tree().root.get_node("Main")
+	rect_size.x = parent.get_viewport_rect().size.x
+	rect_size.y = parent.get_viewport_rect().size.y
+	rect_position = -parent.get_viewport_rect().size / 2
+	#position = -parent.get_viewport_rect().size / 2
+	queen_sprite = $VBoxContainer1/Control2/Queen
+	player_sprite = $VBoxContainer2/Control1/Player
+	
 func done():
-	pass
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+	$PlayerTimer.stop()
+	$QueenTimer.stop()
+	$SpeechTimer.stop()
+	parent.setup_state(parent.GAME)
 
 func reset():
 	current_line = -1
 	advance_speech()
 	$SpeechTimer.start()
-	$Player/PlayerTimer.start()
-	$Queen/QueenTimer.start()
+	$PlayerTimer.start()
+	$QueenTimer.start()
 
 func advance_speech():
 	current_line += 1
 	if current_line >= len(speech):
 		done()
 	else:
-		$PlayerRichTextLabel.text = ""
-		$QueenRichTextLabel.text = ""
+		$VBoxContainer2/PlayerRichTextLabel.text = ""
+		$VBoxContainer1/QueenRichTextLabel.text = ""
 		which_talking = speech[current_line][0]
 		var line = speech[current_line][1]
 		if which_talking == QUEEN:
-			$QueenRichTextLabel.text = line
+			$VBoxContainer1/QueenRichTextLabel.text = line
 		else:
-			$PlayerRichTextLabel.text = line
-		change_animation($Queen, which_talking == QUEEN)	
-		change_animation($Player, which_talking == PLAYER)
+			$VBoxContainer2/PlayerRichTextLabel.text = line
+		change_animation(queen_sprite, which_talking == QUEEN)	
+		change_animation(player_sprite, which_talking == PLAYER)
 		$SpeechTimer.wait_time = len(speech[current_line][1]) / 5
 
 func change_animation(node, talking):
@@ -69,10 +74,10 @@ func change_animation(node, talking):
 		node.play(possible[i])
 
 func _on_PlayerTimer_timeout():
-	change_animation($Player, which_talking == PLAYER)
+	change_animation(player_sprite, which_talking == PLAYER)
 
 func _on_QueenTimer_timeout():
-	change_animation($Queen, which_talking == QUEEN)
+	change_animation(queen_sprite, which_talking == QUEEN)
 
 func _on_SpeechTimer_timeout():
 	advance_speech()

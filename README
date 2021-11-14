@@ -8,15 +8,15 @@ Made with Godot
 [X] Baddies shoot at player
 [X] bad bullets damage player
 [X] good bullets damaged baddies
-[ ] God mode for testing
+[X] God mode for testing
 
-[ ] "Select Mission" goes to mission selection page
+[X] "Select Mission" goes to mission selection page
 [X] in Game menu pulled up on escape
 [X] add briefing scene, script stored in missionX.gd
 [X] draw talking heads
 [ ] add standard wingmen
-[ ] add flocking wingmen (drones)
-[ ] draw drones
+[X] add flocking wingmen (drones)
+[X] draw drones
 [ ] add Little Dr. Baddies (slow)
 [ ] add Little Dr. weapons
     each time a ship is hit with Little Dr. it spawns a new little Dr effect area (circle)
@@ -26,3 +26,5 @@ Made with Godot
 [ ] add mothership scene
 [X] add HUD (energy/health)
 [ ] support game controller
+[ ] briefing scene transitions (fade, wipe, etc)
+[ ] skip briefing option

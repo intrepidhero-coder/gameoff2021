@@ -17,5 +17,5 @@ func _on_Back_pressed():
 	parent.setup_state(parent.MENU)
 
 func _on_Select1_pressed():
-	parent.start_mission()
-	parent.setup_state(parent.GAME)
+	parent.setup_scenario(0)
+	parent.setup_state(parent.BRIEF)

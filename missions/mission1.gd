@@ -1,3 +1,5 @@
+const QUEEN = 1
+const PLAYER = 2
 var name = "Kill 'em All"
 var win =  {
 		"group": "alpha",
@@ -20,4 +22,9 @@ var events = {
 		"args": {"N":10}
 	}
 }
-
+var speech = [
+	[QUEEN, "Scout Xyzzy, report on your status."],
+	[PLAYER, "Scout Xyzzy reporting from frontier patrol."],
+	[PLAYER, "Nothing out of the ordinary to report."],
+	[PLAYER, "Wait I'm detecting something..."],
+]

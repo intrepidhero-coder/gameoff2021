@@ -5,85 +5,163 @@
 [ext_resource path="res://scripts/briefing.gd" type="Script" id=3]
 [ext_resource path="res://assets/hack_dynamic_font.tres" type="DynamicFont" id=4]
 
-[sub_resource type="AtlasTexture" id=2]
+[sub_resource type="AtlasTexture" id=12]
 flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 700, 600, 350, 300 )
+atlas = ExtResource( 2 )
+region = Rect2( 1000, 600, 500, 600 )
 
-[sub_resource type="AtlasTexture" id=3]
+[sub_resource type="AtlasTexture" id=13]
 flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 0, 0, 350, 300 )
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 500, 600 )
 
-[sub_resource type="AtlasTexture" id=4]
+[sub_resource type="AtlasTexture" id=14]
 flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 350, 300, 350, 300 )
+atlas = ExtResource( 2 )
+region = Rect2( 500, 600, 500, 600 )
 
-[sub_resource type="AtlasTexture" id=5]
+[sub_resource type="AtlasTexture" id=15]
 flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 0, 600, 350, 300 )
+atlas = ExtResource( 2 )
+region = Rect2( 0, 1200, 500, 600 )
 
-[sub_resource type="AtlasTexture" id=6]
+[sub_resource type="AtlasTexture" id=16]
 flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 350, 600, 350, 300 )
+atlas = ExtResource( 2 )
+region = Rect2( 500, 1200, 500, 600 )
 
-[sub_resource type="AtlasTexture" id=7]
+[sub_resource type="AtlasTexture" id=17]
 flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 0, 600, 350, 300 )
+atlas = ExtResource( 2 )
+region = Rect2( 0, 1200, 500, 600 )
 
-[sub_resource type="AtlasTexture" id=8]
+[sub_resource type="AtlasTexture" id=18]
 flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 350, 0, 350, 300 )
+atlas = ExtResource( 2 )
+region = Rect2( 500, 0, 500, 600 )
 
-[sub_resource type="AtlasTexture" id=9]
+[sub_resource type="AtlasTexture" id=19]
 flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 700, 0, 350, 300 )
+atlas = ExtResource( 2 )
+region = Rect2( 1000, 0, 500, 600 )
 
-[sub_resource type="AtlasTexture" id=10]
+[sub_resource type="AtlasTexture" id=20]
 flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 0, 300, 350, 300 )
+atlas = ExtResource( 2 )
+region = Rect2( 0, 600, 500, 600 )
 
-[sub_resource type="SpriteFrames" id=11]
+[sub_resource type="SpriteFrames" id=21]
 animations = [ {
-"frames": [ SubResource( 2 ) ],
+"frames": [ SubResource( 12 ) ],
 "loop": true,
 "name": "tilt",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 3 ) ],
+"frames": [ SubResource( 13 ) ],
 "loop": true,
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 4 ) ],
+"frames": [ SubResource( 14 ) ],
 "loop": true,
 "name": "antenna",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
+"frames": [ SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
 "loop": true,
 "name": "arms",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 8 ), SubResource( 9 ) ],
+"frames": [ SubResource( 18 ), SubResource( 19 ) ],
 "loop": true,
 "name": "blink",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 10 ) ],
+"frames": [ SubResource( 20 ) ],
 "loop": true,
 "name": "mandibles",
 "speed": 5.0
 } ]
 
-[sub_resource type="TileSet" id=1]
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 700, 600, 350, 300 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 350, 300 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 350, 300, 350, 300 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 600, 350, 300 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 350, 600, 350, 300 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 600, 350, 300 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 350, 0, 350, 300 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 700, 0, 350, 300 )
+
+[sub_resource type="AtlasTexture" id=9]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 300, 350, 300 )
+
+[sub_resource type="SpriteFrames" id=10]
+animations = [ {
+"frames": [ SubResource( 1 ) ],
+"loop": true,
+"name": "tilt",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 2 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 3 ) ],
+"loop": true,
+"name": "antenna",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
+"loop": true,
+"name": "arms",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 7 ), SubResource( 8 ) ],
+"loop": true,
+"name": "blink",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 9 ) ],
+"loop": true,
+"name": "mandibles",
+"speed": 5.0
+} ]
+
+[sub_resource type="TileSet" id=11]
 0/name = "player_frames.png 0"
 0/texture = ExtResource( 1 )
 0/tex_offset = Vector2( 0, 0 )
@@ -108,85 +186,7 @@ animations = [ {
 0/shapes = [  ]
 0/z_index = 0
 
-[sub_resource type="AtlasTexture" id=13]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 1000, 600, 500, 600 )
-
-[sub_resource type="AtlasTexture" id=14]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 500, 600 )
-
-[sub_resource type="AtlasTexture" id=15]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 500, 600, 500, 600 )
-
-[sub_resource type="AtlasTexture" id=16]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 0, 1200, 500, 600 )
-
-[sub_resource type="AtlasTexture" id=17]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 500, 1200, 500, 600 )
-
-[sub_resource type="AtlasTexture" id=18]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 0, 1200, 500, 600 )
-
-[sub_resource type="AtlasTexture" id=19]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 500, 0, 500, 600 )
-
-[sub_resource type="AtlasTexture" id=20]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 1000, 0, 500, 600 )
-
-[sub_resource type="AtlasTexture" id=21]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 0, 600, 500, 600 )
-
-[sub_resource type="SpriteFrames" id=22]
-animations = [ {
-"frames": [ SubResource( 13 ) ],
-"loop": true,
-"name": "tilt",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 14 ) ],
-"loop": true,
-"name": "idle",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 15 ) ],
-"loop": true,
-"name": "antenna",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 16 ), SubResource( 17 ), SubResource( 18 ) ],
-"loop": true,
-"name": "arms",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 19 ), SubResource( 20 ) ],
-"loop": true,
-"name": "blink",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 21 ) ],
-"loop": true,
-"name": "mandibles",
-"speed": 5.0
-} ]
-
-[sub_resource type="TileSet" id=12]
+[sub_resource type="TileSet" id=22]
 0/name = "queen_frames.png 0"
 0/texture = ExtResource( 2 )
 0/tex_offset = Vector2( 0, 0 )
@@ -211,76 +211,104 @@ animations = [ {
 0/shapes = [  ]
 0/z_index = 0
 
-[node name="Node2D" type="Node2D"]
-position = Vector2( 1446.01, 309.591 )
+[node name="Briefing" type="ReferenceRect"]
+margin_left = 8.47559
+margin_right = 1928.48
+margin_bottom = 1080.0
 script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Player" type="AnimatedSprite" parent="."]
-position = Vector2( -7.55103, -132.142 )
-frames = SubResource( 11 )
-animation = "tilt"
+[node name="VBoxContainer1" type="VBoxContainer" parent="."]
+anchor_bottom = 1.0
+margin_top = 50.0
+margin_right = 500.0
 
-[node name="PlayerTimer" type="Timer" parent="Player"]
-wait_time = 0.2
+[node name="Control2" type="Control" parent="VBoxContainer1"]
+margin_right = 500.0
+margin_bottom = 600.0
+rect_min_size = Vector2( 500, 600 )
 
-[node name="PlayerTileMap" type="TileMap" parent="."]
-tile_set = SubResource( 1 )
-cell_size = Vector2( 350, 300 )
-format = 1
-
-[node name="Queen" type="AnimatedSprite" parent="."]
-position = Vector2( -1142.41, -3.07501 )
-frames = SubResource( 22 )
+[node name="Queen" type="AnimatedSprite" parent="VBoxContainer1/Control2"]
+position = Vector2( 250, 300 )
+frames = SubResource( 21 )
 animation = "arms"
 
-[node name="QueenTimer" type="Timer" parent="Queen"]
-wait_time = 0.2
-
-[node name="QueenTileMap" type="TileMap" parent="."]
-position = Vector2( 0, 2.37842 )
-tile_set = SubResource( 12 )
-format = 1
-
-[node name="PlayerRichTextLabel" type="RichTextLabel" parent="."]
-margin_left = -338.478
-margin_top = 59.5804
-margin_right = 257.522
-margin_bottom = 335.58
-custom_fonts/normal_font = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="QueenRichTextLabel" type="RichTextLabel" parent="."]
-margin_left = -876.0
-margin_top = -293.0
-margin_right = -328.0
-margin_bottom = -89.0
-custom_fonts/normal_font = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Polygon2D" type="Polygon2D" parent="."]
-position = Vector2( -478.609, 240.272 )
+[node name="Polygon2D" type="Polygon2D" parent="VBoxContainer1/Control2/Queen"]
+position = Vector2( 663.801, 243.347 )
 scale = Vector2( 0.935393, 0.983914 )
 z_index = -1
 color = Color( 0.219608, 0.239216, 0.207843, 1 )
 offset = Vector2( 243.75, -261.008 )
 polygon = PoolVector2Array( -1230.83, -277.418, -671.663, -289.383, -682.45, 324.251, -1227.23, 312.286 )
 
-[node name="Polygon2D2" type="Polygon2D" parent="."]
-position = Vector2( 664.206, 241.953 )
+[node name="QueenRichTextLabel" type="RichTextLabel" parent="VBoxContainer1"]
+margin_top = 604.0
+margin_right = 500.0
+margin_bottom = 904.0
+rect_min_size = Vector2( 500, 300 )
+custom_fonts/normal_font = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -400.0
+margin_top = 50.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control1" type="Control" parent="VBoxContainer2"]
+margin_right = 400.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 350, 300 )
+
+[node name="Player" type="AnimatedSprite" parent="VBoxContainer2/Control1"]
+position = Vector2( 175, 150 )
+frames = SubResource( 10 )
+animation = "tilt"
+
+[node name="Polygon2D2" type="Polygon2D" parent="VBoxContainer2/Control1/Player"]
+position = Vector2( 851.321, 111.28 )
 scale = Vector2( 0.935393, 0.983914 )
 z_index = -1
 color = Color( 0.219608, 0.239216, 0.207843, 1 )
-offset = Vector2( 243.75, -261.008 )
 polygon = PoolVector2Array( -1180.48, -270.581, -714.813, -262.035, -689.642, 21.7072, -1151.72, 47.3466 )
+
+[node name="PlayerRichTextLabel" type="RichTextLabel" parent="VBoxContainer2"]
+margin_top = 304.0
+margin_right = 400.0
+margin_bottom = 604.0
+rect_min_size = Vector2( 350, 300 )
+custom_fonts/normal_font = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerTileMap" type="TileMap" parent="."]
+tile_set = SubResource( 11 )
+cell_size = Vector2( 350, 300 )
+format = 1
+
+[node name="QueenTileMap" type="TileMap" parent="."]
+position = Vector2( 0, 2.37842 )
+tile_set = SubResource( 22 )
+cell_size = Vector2( 500, 600 )
+format = 1
 
 [node name="SpeechTimer" type="Timer" parent="."]
 
-[connection signal="timeout" from="Player/PlayerTimer" to="." method="_on_Timer_timeout"]
-[connection signal="timeout" from="Player/PlayerTimer" to="." method="_on_PlayerTimer_timeout"]
-[connection signal="timeout" from="Queen/QueenTimer" to="." method="_on_Timer_timeout"]
-[connection signal="timeout" from="Queen/QueenTimer" to="." method="_on_QueenTimer_timeout"]
+[node name="PlayerTimer" type="Timer" parent="."]
+wait_time = 0.2
+
+[node name="QueenTimer" type="Timer" parent="."]
+wait_time = 0.2
+
 [connection signal="timeout" from="SpeechTimer" to="." method="_on_SpeechTimer_timeout"]
+[connection signal="timeout" from="PlayerTimer" to="." method="_on_PlayerTimer_timeout"]
+[connection signal="timeout" from="QueenTimer" to="." method="_on_QueenTimer_timeout"]

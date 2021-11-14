@@ -1,9 +1,6 @@
 extends Control
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 var parent
 
 # Called when the node enters the scene tree for the first time.
@@ -20,9 +17,7 @@ func _ready():
 
 
 func _on_Select_pressed():
-	# TODO: mission menu
-	parent.start_mission()
-	parent.setup_state(parent.GAME)
+	parent.setup_state(parent.MISSION_MENU)
 
 func _on_Quit_pressed():
 	parent.quit()

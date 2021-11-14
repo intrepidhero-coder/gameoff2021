@@ -3,7 +3,7 @@
 [ext_resource path="res://scripts/mission_menu.gd" type="Script" id=1]
 [ext_resource path="res://assets/hack_dynamic_font.tres" type="DynamicFont" id=2]
 
-[node name="Node2D" type="Control"]
+[node name="MissionMenu" type="CenterContainer"]
 anchor_left = 0.5
 anchor_right = 0.5
 script = ExtResource( 1 )
@@ -11,55 +11,50 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Select1" type="Button" parent="."]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -500.0
-margin_top = 90.0
-margin_bottom = 129.0
-custom_fonts/font = ExtResource( 2 )
-text = "Kill 'em All"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="GridContainer" type="GridContainer" parent="."]
+margin_right = 411.0
+margin_bottom = 161.0
+custom_constants/vseparation = 10
+custom_constants/hseparation = 20
+columns = 2
 
-[node name="Back" type="Button" parent="."]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -500.0
-margin_top = 540.0
-margin_bottom = 39.0
+[node name="Label" type="Label" parent="GridContainer"]
+margin_right = 238.0
+margin_bottom = 33.0
 custom_fonts/font = ExtResource( 2 )
-text = "Back to Menu"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+text = "Choose Mission"
 
-[node name="Label0" type="Label" parent="."]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = 50.0
-margin_top = 40.0
-margin_right = 40.0
-margin_bottom = 14.0
+[node name="Label0" type="Label" parent="GridContainer"]
+margin_left = 258.0
+margin_right = 411.0
+margin_bottom = 33.0
 custom_fonts/font = ExtResource( 2 )
 text = "Highscore"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Line2D" type="Line2D" parent="Label0"]
+[node name="Line2D" type="Line2D" parent="GridContainer/Label0"]
+position = Vector2( 0, -7 )
 points = PoolVector2Array( 0, 40, 250, 40 )
 width = 2.0
 default_color = Color( 0.372549, 0.47451, 1, 1 )
 
-[node name="Label1" type="Label" parent="."]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = 50.0
-margin_top = 90.0
-margin_right = 40.0
-margin_bottom = 14.0
+[node name="Select1" type="Button" parent="GridContainer"]
+margin_top = 43.0
+margin_right = 238.0
+margin_bottom = 112.0
+custom_fonts/font = ExtResource( 2 )
+text = "Kill 'em All"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label1" type="Label" parent="GridContainer"]
+margin_left = 258.0
+margin_top = 43.0
+margin_right = 411.0
+margin_bottom = 112.0
 custom_fonts/font = ExtResource( 2 )
 text = "0/0
 "
@@ -67,5 +62,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="pressed" from="Select1" to="." method="_on_Select1_pressed"]
-[connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]
+[node name="Back" type="Button" parent="GridContainer"]
+margin_top = 122.0
+margin_right = 238.0
+margin_bottom = 161.0
+custom_fonts/font = ExtResource( 2 )
+text = "Back to Menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="GridContainer/Select1" to="." method="_on_Select1_pressed"]
+[connection signal="pressed" from="GridContainer/Back" to="." method="_on_Back_pressed"]

@@ -4,6 +4,7 @@ const MENU = 0
 const GAME = 1
 const PAUSE = 2
 const BRIEF = 3
+const MISSION_MENU = 4
 
 var state = MENU
 var chosen_scenario = 0
@@ -27,6 +28,8 @@ func setup_state(newstate):
 	# tear down old state
 	if state == MENU:
 		$MainMenu.hide()
+	elif state == MISSION_MENU:
+		$MissionMenu.hide()
 	elif state == GAME:
 		pass
 	elif state == PAUSE:
@@ -38,6 +41,8 @@ func setup_state(newstate):
 	state = newstate
 	if state == MENU:
 		$MainMenu.show()
+	elif state == MISSION_MENU:
+		$MissionMenu.show()
 	elif state == GAME:
 		pass
 	elif state == PAUSE:
@@ -59,14 +64,14 @@ func _process(_delta):
 	# update background
 	if state == GAME:
 		$ParallaxBackground.scroll_offset = -$Player.world_position
-	elif state == MENU:
+	elif state == MENU or state == MISSION_MENU:
 		var scroll = Vector2(0, 2)
 		$ParallaxBackground.scroll_offset += scroll
 	elif state == PAUSE:
 		pass
 
 func get_input():
-	if state == MENU:
+	if state == MENU or state == MISSION_MENU:
 		pass
 	elif state == GAME:
 		if Input.is_action_just_pressed("escape"):

@@ -64,7 +64,7 @@ func _process(_delta):
 	# update background
 	if state == GAME:
 		$ParallaxBackground.scroll_offset = -$Player.world_position
-	elif state == MENU or state == MISSION_MENU:
+	elif state == MENU or state == MISSION_MENU or state == BRIEF:
 		var scroll = Vector2(0, 2)
 		$ParallaxBackground.scroll_offset += scroll
 	elif state == PAUSE:

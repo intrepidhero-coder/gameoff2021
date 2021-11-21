@@ -5,128 +5,50 @@
 [ext_resource path="res://scripts/briefing.gd" type="Script" id=3]
 [ext_resource path="res://assets/hack_dynamic_font.tres" type="DynamicFont" id=4]
 
-[sub_resource type="AtlasTexture" id=12]
+[sub_resource type="AtlasTexture" id=1]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 1000, 600, 500, 600 )
 
-[sub_resource type="AtlasTexture" id=13]
+[sub_resource type="AtlasTexture" id=2]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 500, 600 )
 
-[sub_resource type="AtlasTexture" id=14]
+[sub_resource type="AtlasTexture" id=3]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 500, 600, 500, 600 )
 
-[sub_resource type="AtlasTexture" id=15]
+[sub_resource type="AtlasTexture" id=4]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 0, 1200, 500, 600 )
 
-[sub_resource type="AtlasTexture" id=16]
+[sub_resource type="AtlasTexture" id=5]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 500, 1200, 500, 600 )
 
-[sub_resource type="AtlasTexture" id=17]
+[sub_resource type="AtlasTexture" id=6]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 0, 1200, 500, 600 )
 
-[sub_resource type="AtlasTexture" id=18]
+[sub_resource type="AtlasTexture" id=7]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 500, 0, 500, 600 )
 
-[sub_resource type="AtlasTexture" id=19]
+[sub_resource type="AtlasTexture" id=8]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 1000, 0, 500, 600 )
 
-[sub_resource type="AtlasTexture" id=20]
+[sub_resource type="AtlasTexture" id=9]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 0, 600, 500, 600 )
-
-[sub_resource type="SpriteFrames" id=21]
-animations = [ {
-"frames": [ SubResource( 12 ) ],
-"loop": true,
-"name": "tilt",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 13 ) ],
-"loop": true,
-"name": "idle",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 14 ) ],
-"loop": true,
-"name": "antenna",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
-"loop": true,
-"name": "arms",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 18 ), SubResource( 19 ) ],
-"loop": true,
-"name": "blink",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 20 ) ],
-"loop": true,
-"name": "mandibles",
-"speed": 5.0
-} ]
-
-[sub_resource type="AtlasTexture" id=1]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 700, 600, 350, 300 )
-
-[sub_resource type="AtlasTexture" id=2]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 0, 0, 350, 300 )
-
-[sub_resource type="AtlasTexture" id=3]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 350, 300, 350, 300 )
-
-[sub_resource type="AtlasTexture" id=4]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 0, 600, 350, 300 )
-
-[sub_resource type="AtlasTexture" id=5]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 350, 600, 350, 300 )
-
-[sub_resource type="AtlasTexture" id=6]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 0, 600, 350, 300 )
-
-[sub_resource type="AtlasTexture" id=7]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 350, 0, 350, 300 )
-
-[sub_resource type="AtlasTexture" id=8]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 700, 0, 350, 300 )
-
-[sub_resource type="AtlasTexture" id=9]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 0, 300, 350, 300 )
 
 [sub_resource type="SpriteFrames" id=10]
 animations = [ {
@@ -161,7 +83,85 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="TileSet" id=11]
+[sub_resource type="AtlasTexture" id=11]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 700, 600, 350, 300 )
+
+[sub_resource type="AtlasTexture" id=12]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 350, 300 )
+
+[sub_resource type="AtlasTexture" id=13]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 350, 300, 350, 300 )
+
+[sub_resource type="AtlasTexture" id=14]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 600, 350, 300 )
+
+[sub_resource type="AtlasTexture" id=15]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 350, 600, 350, 300 )
+
+[sub_resource type="AtlasTexture" id=16]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 600, 350, 300 )
+
+[sub_resource type="AtlasTexture" id=17]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 350, 0, 350, 300 )
+
+[sub_resource type="AtlasTexture" id=18]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 700, 0, 350, 300 )
+
+[sub_resource type="AtlasTexture" id=19]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 300, 350, 300 )
+
+[sub_resource type="SpriteFrames" id=20]
+animations = [ {
+"frames": [ SubResource( 11 ) ],
+"loop": true,
+"name": "tilt",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 12 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 13 ) ],
+"loop": true,
+"name": "antenna",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 14 ), SubResource( 15 ), SubResource( 16 ) ],
+"loop": true,
+"name": "arms",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 17 ), SubResource( 18 ) ],
+"loop": true,
+"name": "blink",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 19 ) ],
+"loop": true,
+"name": "mandibles",
+"speed": 5.0
+} ]
+
+[sub_resource type="TileSet" id=21]
 0/name = "player_frames.png 0"
 0/texture = ExtResource( 1 )
 0/tex_offset = Vector2( 0, 0 )
@@ -232,7 +232,7 @@ rect_min_size = Vector2( 500, 600 )
 
 [node name="Queen" type="AnimatedSprite" parent="VBoxContainer1/Control2"]
 position = Vector2( 250, 300 )
-frames = SubResource( 21 )
+frames = SubResource( 10 )
 animation = "arms"
 
 [node name="Polygon2D" type="Polygon2D" parent="VBoxContainer1/Control2/Queen"]
@@ -270,7 +270,7 @@ rect_min_size = Vector2( 350, 300 )
 
 [node name="Player" type="AnimatedSprite" parent="VBoxContainer2/Control1"]
 position = Vector2( 175, 150 )
-frames = SubResource( 10 )
+frames = SubResource( 20 )
 animation = "tilt"
 
 [node name="Polygon2D2" type="Polygon2D" parent="VBoxContainer2/Control1/Player"]
@@ -291,7 +291,7 @@ __meta__ = {
 }
 
 [node name="PlayerTileMap" type="TileMap" parent="."]
-tile_set = SubResource( 11 )
+tile_set = SubResource( 21 )
 cell_size = Vector2( 350, 300 )
 format = 1
 

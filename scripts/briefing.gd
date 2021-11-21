@@ -35,6 +35,11 @@ func _ready():
 	queen_sprite = $VBoxContainer1/Control2/Queen
 	player_sprite = $VBoxContainer2/Control1/Player
 	
+func _process(delta):
+	if parent.state == parent.BRIEF:
+		if Input.is_action_just_pressed("escape"):
+			advance_speech()
+	
 func done():
 	$PlayerTimer.stop()
 	$QueenTimer.stop()

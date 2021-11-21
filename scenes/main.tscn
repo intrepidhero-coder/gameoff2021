@@ -70,6 +70,11 @@ visible = false
 
 [node name="Drone" parent="." instance_placeholder="res://scenes/drone.tscn"]
 
+[node name="Dr" parent="." instance_placeholder="res://scenes/dr.tscn"]
+
+[node name="Beacon" parent="." instance_placeholder="res://scenes/Beacon.tscn"]
+visible = false
+
 [node name="FlockController" parent="." instance_placeholder="res://scenes/flock_controller.tscn"]
 
 [node name="Camera2D" type="Camera2D" parent="."]

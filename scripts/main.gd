@@ -85,22 +85,44 @@ func get_input():
 # checks for scenario events
 func _on_ScenarioEventTimer_timeout():
 	var scenario = scenario_conditions[chosen_scenario]
-	if scenario_elapsed_time in scenario.events:
-		var event = scenario.events[scenario_elapsed_time]
-		if event["kind"] == "spawn":
-			for f in range(event["number"]):
-				var s = get_node(event["scene"]).create_instance()
-				var offset = Vector2(randf() * 128 - 64, randf() * 128 - 64)
-				for g in event["groups"]:
-					s.add_to_group(g)
-				s.add_to_group("mission_despawn")
-				if "args" in event:
-					s.init(event["position"] + offset, event["args"])
-				else:
-					s.init(event["position"] + offset)
-				s.show()
-				add_child(s)
+	for event in scenario.events:
+		var trigger = false
+		if event["triggered"]:
+			continue
+		if "time" in event["after"] and scenario_elapsed_time >= event["after"]["time"]:
+			trigger = true
+		if "group" in event["after"]:
+			if event["after"]["group"] == "Player":
+				if "position" in event["after"] and $Player.world_position.distance_to(event["after"]["position"]) < 200:
+					trigger = true
+			else:
+				var flag = true
+				for n in get_tree().get_nodes_in_group(event["after"]["group"]):
+					if "dead" in event["after"] and not n.dead:
+						flag = false
+						break
+				trigger = flag
+		if trigger:
+			event["triggered"] = true
+			if event["kind"] == "spawn":
+				spawn_event(event)
 	scenario_elapsed_time += 1
+
+func spawn_event(event):
+	for f in range(event["number"]):
+		var s = get_node(event["scene"]).create_instance()
+		var offset = Vector2(0, 0)
+		if event["number"] > 1:
+			offset = Vector2(randf() * 128 - 64, randf() * 128 - 64)
+		for g in event["groups"]:
+			s.add_to_group(g)
+		s.add_to_group("mission_despawn")
+		if "args" in event:
+			s.init(event["position"] + offset, event["args"])
+		else:
+			s.init(event["position"] + offset)
+		s.show()
+		add_child(s)
 
 func _on_MissionResultTimer_timeout():
 	setup_state(MENU)

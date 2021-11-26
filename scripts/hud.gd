@@ -1,4 +1,4 @@
-extends MarginContainer
+extends Node2D
 
 
 var parent
@@ -6,12 +6,17 @@ var parent
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	parent = get_tree().root.get_node("Main")
-	rect_size.x = parent.get_viewport_rect().size.x
-	rect_size.y = parent.get_viewport_rect().size.y
-	rect_position = -parent.get_viewport_rect().size / 2
+	var viewRect = parent.get_viewport_rect() 
+	#rect_size = viewRect.size
+	$TextureRect.rect_position = -viewRect.size / 2
+	$Health.rect_position.x = -viewRect.size.x / 2 + $TextureRect.rect_size.x
+	$Health.rect_position.y = -viewRect.size.y / 2
+	$Sensor.rect_position.x = -viewRect.size.x / 2
+	$Sensor.rect_position.y = viewRect.size.y / 2 - 196
+	$Computer.rect_position = viewRect.size / 2 - $Computer.rect_size
 
 func set_health(x):
-	$HBoxContainer/MarginContainer/HBoxContainer/Health.value = x
+	$Health.value = x
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

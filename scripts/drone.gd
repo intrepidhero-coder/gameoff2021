@@ -103,7 +103,8 @@ func die():
 	
 func _on_DeathTimer_timeout():
 	$DeathTimer.stop()
-	queue_free()
+	$ExplosionParticles.emitting = false
+	#queue_free()
 
 func _on_PewPewCoolDown_timeout():
 	$PewPewCoolDown.stop()

@@ -40,8 +40,9 @@ func _process(delta):
 		# remove dead members
 		# this works because there is a timer that must expire b/t death
 		# and freeing
-		if m.dead:
-			members.remove(m)
+		if not m:
+			#members.remove(m)
+			pass
 		else:
 			# update self.world_position based on average of members
 			world_position += m.world_position

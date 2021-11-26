@@ -3,12 +3,13 @@ extends Area2D
 
 export (int) var speed = 1000
 export var velocity = Vector2()
-export var damage = 10
+export var damage = 100
 export var world_position = Vector2()
-var exploding = false
+var effect = false
 var lines = []
 var gun = null
 var target = null
+const HITLIMIT = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -40,22 +41,26 @@ func _process(delta):
 			l.points[1] = pos1 + r
 
 		# for collision detection
-		position = target.world_position - player.world_position
+		world_position = target.world_position
+		position = world_position - player.world_position
 	else:
+		# the disentegrate effect
 		#position = Vector2(0, 0)
-		pass
+		position = world_position - player.world_position
 
 func _on_Bullet_area_entered(area):
-	# disable further collisons
-	$CollisionShape2D.set_deferred("disabled", true)
-	$Explosion.emitting = true
-	velocity.x = 0
-	velocity.y = 0
-	$ExplosionTimer.start()
-	exploding = true
+	$EffectTime.start()
+	# duplicate the CollisionShape (up to a limit)
+	# and set the position to the target
+	var d = $CollisionShape2D.duplicate()
+	d.get_shape().set_radius(128)
+	d.position = area.position
+	add_child(d)
 
-func _on_ExplosionTimer_timeout():
-	queue_free()
+func _on_BeamTime_timeout():
+	# start the effect animation
+	for l in lines:
+		l.hide()
 
-func _on_Lifetime_timeout():
+func _on_EffectTime_timeout():
 	queue_free()

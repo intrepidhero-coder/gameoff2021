@@ -19,7 +19,7 @@ var events = [
 	},
 	{
 		"after": {"time": 0},
-		"groups": ["gamma", "baddies"],
+		"groups": ["gamma"],
 		"kind": "spawn",
 		"scene": "Dr",
 		"number": 1,

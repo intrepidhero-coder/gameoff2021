@@ -37,16 +37,10 @@ func pewpewdie():
 	$PewPewCoolDown.start()
 	$AudioStreamPlayer2D.play()
 	var root = get_tree().root
-	var newBullet = get_node("../PewPewBullet").create_instance()
+	var newBullet = get_node("../LittleDr").create_instance()
 	newBullet.collision_layer = 512
 	newBullet.collision_mask = 1
-	newBullet.world_position.x = world_position.x
-	newBullet.world_position.y = world_position.y
-	newBullet.position = newBullet.world_position - get_node("../Player").world_position
-	var a = attitude - PI/2
-	newBullet.velocity = Vector2(sin(a), -cos(a)) * newBullet.speed
-	newBullet.rotation = a
-	newBullet.speed = 1000
+	newBullet.fire(self, get_node("../Player"))
 	root.add_child(newBullet)
 	newBullet.add_to_group("mission_despawn")
 	newBullet.show()

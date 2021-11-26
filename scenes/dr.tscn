@@ -20,7 +20,7 @@ texture = ExtResource( 3 )
 shape = SubResource( 1 )
 
 [node name="PewPewCoolDown" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 10.0
 
 [node name="DeathTimer" type="Timer" parent="."]
 one_shot = true

@@ -33,7 +33,7 @@ autostart = true
 
 [node name="Line0" type="Line2D" parent="."]
 points = PoolVector2Array( 0, 0, 0, 0 )
-width = 3.0
+width = 2.0
 default_color = Color( 0.996078, 1, 0.552941, 1 )
 
 [connection signal="area_entered" from="." to="." method="_on_Bullet_area_entered"]

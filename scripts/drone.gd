@@ -12,6 +12,7 @@ export (int) var health = max_health
 export var world_position = Vector2()
 var dead = false
 var controller = null
+var virtual = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

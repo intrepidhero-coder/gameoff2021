@@ -134,6 +134,7 @@ func end_mission():
 	$ScenarioEventTimer.stop()
 	$Player.hide()
 	$Player.reset()
+	$HUD.reset()
 	$HUD.hide()
 	reset_scenario()
 	# despawn any left over entities

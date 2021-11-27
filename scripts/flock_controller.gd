@@ -3,6 +3,8 @@ extends Node2D
 var target = null
 var members = []
 var world_position = Vector2(0,0)
+var dead = false
+var virtual = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,7 +19,7 @@ func init(pos, args):
 		var offset = Vector2(randf() * 128 - 64, randf() * 128 - 64)
 		member.init(pos + offset)
 		member.controller = self
-		for g in get_groups():
+		for g in args["groups"]:
 			member.add_to_group(g)
 		member.show()
 		get_node("..").add_child(member)

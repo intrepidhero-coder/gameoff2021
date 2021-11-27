@@ -19,7 +19,7 @@ var events = [
 	},
 	{
 		"after": {"time": 0},
-		"groups": ["gamma"],
+		"groups": ["gamma", "neutral"],
 		"kind": "spawn",
 		"scene": "Dr",
 		"number": 1,
@@ -37,12 +37,12 @@ var events = [
 	},
 	{
 		"after": {"group": "Player", "position": Vector2(1000, 0)},
-		"groups": ["green", "allies"],
+		"groups": [],
 		"kind": "spawn",
 		"scene": "FlockController",
 		"number": 1,
 		"position": Vector2(1000, 0),
-		"args": {"N":10},
+		"args": {"N":10, "groups": ["green", "allies"]},
 		"triggered": false
 	},
 	{

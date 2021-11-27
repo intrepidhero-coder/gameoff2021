@@ -105,9 +105,12 @@ func _on_PewPewCoolDown_timeout():
 
 func _on_Baddie_area_shape_entered(area_id, area, area_shape, local_shape):
 	health -= area.damage
+	if area.source:
+		area.source.hits += 1
 	if health <= 0:
+		if area.source:
+			area.source.kills += 1
 		die()
-
 
 func _on_SoundEfxStop_timeout():
 	$SoundEfxStop.stop()

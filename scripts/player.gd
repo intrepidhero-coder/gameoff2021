@@ -14,6 +14,10 @@ var god_mode = false
 var target = null
 var last_target = 0
 
+var kills = 0
+var shots = 0
+var hits = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#position.x = get_viewport().size.x / 2
@@ -29,6 +33,10 @@ func reset():
 	max_health = 100
 	health = max_health
 	target = null
+	last_target = 0
+	kills = 0
+	shots = 0
+	hits = 0
 	$Sprite.show()
 	$CollisionShape2D.set_deferred("disabled", false)
 
@@ -48,6 +56,8 @@ func pewpewdie():
 	newBullet.speed = 1000
 	newBullet.collision_layer = 256
 	newBullet.collision_mask = 2
+	newBullet.source = self
+	shots += 1
 	root.add_child(newBullet)
 	newBullet.add_to_group("mission_despawn")
 	newBullet.show()
@@ -121,7 +131,7 @@ func _on_DeathTimer_timeout():
 	$DeathTimer.stop()
 	$ExplosionParticles.emitting = false
 	$"..".end_mission()
-	$"..".setup_state($"..".MENU)
+	#$"..".setup_state($"..".MENU)
 
 func _on_PewPewCoolDown_timeout():
 	$PewPewCoolDown.stop()

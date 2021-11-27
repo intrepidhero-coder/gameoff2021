@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/starfield1.png" type="Texture" id=1]
 [ext_resource path="res://assets/starfield2.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://scenes/hud.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/mission_menu.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/briefing.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/MissionSummary.tscn" type="PackedScene" id=11]
 
 [node name="Main" type="Node2D"]
 pause_mode = 2
@@ -87,6 +88,9 @@ current = true
 
 [node name="HUD" parent="." instance=ExtResource( 8 )]
 pause_mode = 1
+visible = false
+
+[node name="MissionSummary" parent="." instance=ExtResource( 11 )]
 visible = false
 
 [node name="MainMenu" parent="." instance=ExtResource( 6 )]

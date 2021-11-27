@@ -7,6 +7,7 @@ export var damage = 10
 export var world_position = Vector2()
 var exploding = false
 var flavors = [preload("res://assets/blaster1.png"), preload("res://assets/blaster2.png")]
+var source = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

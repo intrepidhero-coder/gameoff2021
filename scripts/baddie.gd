@@ -109,8 +109,11 @@ func _on_PewPewCoolDown_timeout():
 	$PewPewCoolDown.stop()
 	$AudioStreamPlayer2D.stop()
 
-
 func _on_Baddie_area_shape_entered(area_id, area, area_shape, local_shape):
 	health -= area.damage
+	if area.source:
+		area.source.hits += 1
 	if health <= 0:
+		if area.source:
+			area.source.kills += 1
 		die()

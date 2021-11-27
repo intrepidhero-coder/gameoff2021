@@ -5,6 +5,7 @@ const GAME = 1
 const PAUSE = 2
 const BRIEF = 3
 const MISSION_MENU = 4
+const MISSION_SUMMARY = 5
 
 var state = MENU
 var chosen_scenario = 0
@@ -34,6 +35,8 @@ func setup_state(newstate):
 		$MainMenu.hide()
 	elif state == MISSION_MENU:
 		$MissionMenu.hide()
+	elif state == MISSION_SUMMARY:
+		$MissionSummary.hide()
 	elif state == GAME:
 		get_tree().paused = true
 	elif state == PAUSE:
@@ -47,6 +50,8 @@ func setup_state(newstate):
 		$MainMenu.show()
 	elif state == MISSION_MENU:
 		$MissionMenu.show()
+	elif state == MISSION_SUMMARY:
+		$MissionSummary.show()
 	elif state == GAME:
 		get_tree().paused = false
 	elif state == PAUSE:
@@ -84,6 +89,9 @@ func get_input():
 			setup_state(GAME)
 	elif state == BRIEF:
 		pass
+	elif state == MISSION_SUMMARY:
+		if Input.is_action_just_pressed("escape"):
+			setup_state(MENU)
 
 # checks for scenario events
 func _on_ScenarioEventTimer_timeout():
@@ -119,7 +127,6 @@ func _on_ScenarioEventTimer_timeout():
 			elif event["kind"] == "win":
 				# TODO: add mission summary
 				end_mission()
-				setup_state(MENU)
 			elif event["kind"] == "message":
 				$HUD.showMessage(event["message"])
 	scenario_elapsed_time += 1
@@ -147,10 +154,11 @@ func quit():
 	get_tree().quit()
 	
 func end_mission():
+	get_tree().paused = true
 	$ScenarioEventTimer.stop()
+	$MissionSummary.display($Player.shots, $Player.hits, $Player.kills)
+	setup_state(MISSION_SUMMARY)
 	$Player.hide()
-	$Player.reset()
-	$HUD.reset()
 	$HUD.hide()
 	reset_scenario()
 	# despawn any left over entities

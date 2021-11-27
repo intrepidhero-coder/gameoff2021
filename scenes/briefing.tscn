@@ -18,37 +18,37 @@ region = Rect2( 0, 0, 500, 600 )
 [sub_resource type="AtlasTexture" id=3]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 500, 600, 500, 600 )
+region = Rect2( 0, 1200, 500, 600 )
 
 [sub_resource type="AtlasTexture" id=4]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 0, 1200, 500, 600 )
+region = Rect2( 500, 1200, 500, 600 )
 
 [sub_resource type="AtlasTexture" id=5]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 500, 1200, 500, 600 )
+region = Rect2( 0, 1200, 500, 600 )
 
 [sub_resource type="AtlasTexture" id=6]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 0, 1200, 500, 600 )
+region = Rect2( 500, 0, 500, 600 )
 
 [sub_resource type="AtlasTexture" id=7]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 500, 0, 500, 600 )
+region = Rect2( 1000, 0, 500, 600 )
 
 [sub_resource type="AtlasTexture" id=8]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 1000, 0, 500, 600 )
+region = Rect2( 0, 600, 500, 600 )
 
 [sub_resource type="AtlasTexture" id=9]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 0, 600, 500, 600 )
+region = Rect2( 500, 600, 500, 600 )
 
 [sub_resource type="SpriteFrames" id=10]
 animations = [ {
@@ -62,24 +62,24 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 3 ) ],
-"loop": true,
-"name": "antenna",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
+"frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
 "loop": true,
 "name": "arms",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 7 ), SubResource( 8 ) ],
+"frames": [ SubResource( 6 ), SubResource( 7 ) ],
 "loop": true,
 "name": "blink",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 9 ) ],
+"frames": [ SubResource( 8 ) ],
 "loop": true,
 "name": "mandibles",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 9 ) ],
+"loop": true,
+"name": "antenna",
 "speed": 5.0
 } ]
 
@@ -96,37 +96,37 @@ region = Rect2( 0, 0, 350, 300 )
 [sub_resource type="AtlasTexture" id=13]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 350, 300, 350, 300 )
+region = Rect2( 0, 600, 350, 300 )
 
 [sub_resource type="AtlasTexture" id=14]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 0, 600, 350, 300 )
+region = Rect2( 350, 600, 350, 300 )
 
 [sub_resource type="AtlasTexture" id=15]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 350, 600, 350, 300 )
+region = Rect2( 0, 600, 350, 300 )
 
 [sub_resource type="AtlasTexture" id=16]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 0, 600, 350, 300 )
+region = Rect2( 350, 0, 350, 300 )
 
 [sub_resource type="AtlasTexture" id=17]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 350, 0, 350, 300 )
+region = Rect2( 700, 0, 350, 300 )
 
 [sub_resource type="AtlasTexture" id=18]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 700, 0, 350, 300 )
+region = Rect2( 0, 300, 350, 300 )
 
 [sub_resource type="AtlasTexture" id=19]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 0, 300, 350, 300 )
+region = Rect2( 350, 300, 350, 300 )
 
 [sub_resource type="SpriteFrames" id=20]
 animations = [ {
@@ -140,24 +140,24 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 13 ) ],
-"loop": true,
-"name": "antenna",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 14 ), SubResource( 15 ), SubResource( 16 ) ],
+"frames": [ SubResource( 13 ), SubResource( 14 ), SubResource( 15 ) ],
 "loop": true,
 "name": "arms",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 17 ), SubResource( 18 ) ],
+"frames": [ SubResource( 16 ), SubResource( 17 ) ],
 "loop": true,
 "name": "blink",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 19 ) ],
+"frames": [ SubResource( 18 ) ],
 "loop": true,
 "name": "mandibles",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 19 ) ],
+"loop": true,
+"name": "antenna",
 "speed": 5.0
 } ]
 

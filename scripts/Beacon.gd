@@ -24,6 +24,9 @@ func _process(delta):
 
 func _on_Beacon_area_shape_entered(area_id, area, area_shape, local_shape):
 	if "baddies" in get_groups():
+		if area.source:
+			area.source.hits += 1
+			area.source.kills += 1
 		die()
 		
 func _on_DeathTimer_timeout():

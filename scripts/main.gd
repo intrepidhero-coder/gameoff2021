@@ -9,14 +9,16 @@ const MISSION_MENU = 4
 var state = MENU
 var chosen_scenario = 0
 var scenario_conditions = [
-	preload("res://missions/training.gd").new(),
-	preload("res://missions/mission1.gd").new()
+	preload("res://missions/training.gd"),
+	preload("res://missions/mission1.gd")
 ]
 var scenario_elapsed_time = 0
+var scenario = null
 
 func reset_scenario():
 	chosen_scenario = 0
 	scenario_elapsed_time = 0
+	scenario = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -49,13 +51,14 @@ func setup_state(newstate):
 	elif state == PAUSE:
 		$GameMenu.show()
 	elif state == BRIEF:
-		$Briefing.speech = scenario_conditions[chosen_scenario].speech
+		$Briefing.speech = scenario.speech
 		$Briefing.reset()
 		$Briefing.show()
 
-func setup_scenario(scenario: int):
-	chosen_scenario = scenario
-
+func setup_scenario(which: int):
+	chosen_scenario = which
+	scenario = scenario_conditions[chosen_scenario].new()
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	# process input
@@ -83,7 +86,6 @@ func get_input():
 
 # checks for scenario events
 func _on_ScenarioEventTimer_timeout():
-	var scenario = scenario_conditions[chosen_scenario]
 	for event in scenario.events:
 		var trigger = false
 		if event["triggered"]:

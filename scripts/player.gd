@@ -21,12 +21,14 @@ func _ready():
 	pass
 
 func reset():
+	world_position = Vector2()
 	velocity = Vector2()
 	accel = Vector2()
 	thrust = 1000
 	attitude = 0
 	max_health = 100
 	health = max_health
+	target = null
 	$Sprite.show()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

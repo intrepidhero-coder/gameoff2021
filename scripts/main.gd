@@ -10,7 +10,8 @@ var state = MENU
 var chosen_scenario = 0
 var scenario_conditions = [
 	preload("res://missions/training.gd"),
-	preload("res://missions/mission1.gd")
+	preload("res://missions/mission1.gd"),
+	preload("res://missions/testmission.gd")
 ]
 var scenario_elapsed_time = 0
 var scenario = null
@@ -128,7 +129,7 @@ func spawn_event(event):
 		var s = get_node(event["scene"]).create_instance()
 		var offset = Vector2(0, 0)
 		if event["number"] > 1:
-			offset = Vector2(randf() * 128 - 64, randf() * 128 - 64)
+			offset = Vector2(randf() * 256 - 128, randf() * 256 - 128)
 		for g in event["groups"]:
 			s.add_to_group(g)
 		s.add_to_group("mission_despawn")

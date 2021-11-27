@@ -38,6 +38,7 @@ func pewpewdie():
 		return
 	$PewPewCoolDown.start()
 	$AudioStreamPlayer2D.play()
+	$SoundEfxStop.start()
 	var root = get_tree().root
 	var newBullet = get_node("../LittleDr").create_instance()
 	newBullet.collision_layer = 512
@@ -101,10 +102,13 @@ func _on_DeathTimer_timeout():
 
 func _on_PewPewCoolDown_timeout():
 	$PewPewCoolDown.stop()
-	$AudioStreamPlayer2D.stop()
-
 
 func _on_Baddie_area_shape_entered(area_id, area, area_shape, local_shape):
 	health -= area.damage
 	if health <= 0:
 		die()
+
+
+func _on_SoundEfxStop_timeout():
+	$SoundEfxStop.stop()
+	$AudioStreamPlayer2D.stop()

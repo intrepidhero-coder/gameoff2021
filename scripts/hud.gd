@@ -6,8 +6,14 @@ var player
 var bad_blip = preload("res://assets/sensor_red.png")
 var neutral_blip = preload("res://assets/sensor_blue.png")
 var ally_blip = preload("res://assets/sensor_green.png")
-var blips = {}
 var select_blip = preload("res://assets/sensor_select.png")
+var ico_bad = preload("res://assets/ico_bad.png")
+var ico_beacon = preload("res://assets/ico_beacon.png")
+var ico_dr = preload("res://assets/ico_dr.png")
+var ico_drone = preload("res://assets/ico_drone.png")
+var ico_wingman = preload("res://assets/ico_wingman.png")
+var name_to_ico = {"Dr": ico_dr, "Baddie": ico_bad, "Beacon": ico_beacon}
+var blips = {}
 var bracket = null
 
 # Called when the node enters the scene tree for the first time.
@@ -22,6 +28,7 @@ func _ready():
 	$Sensor.rect_position.x = -viewRect.size.x / 2
 	$Sensor.rect_position.y = viewRect.size.y / 2 - 196
 	$Computer.rect_position = viewRect.size / 2 - $Computer.rect_size
+	$Computer/Display.rect_position = ($Computer.rect_size - $Computer/Display.rect_size) / 2
 	bracket = Sprite.new()
 	bracket.texture = select_blip
 	bracket.hide()
@@ -70,7 +77,8 @@ func _process(delta):
 	if player.target and not player.target.dead:
 		bracket.show()
 		bracket.position = calc_pos(player.target)
-		$Computer/Display.texture = player.target.get_node("Sprite").texture
+		$Computer/Display.texture = name_to_ico[player.target.ico]
+		$Computer/Display.rect_position = ($Computer.rect_size - $Computer/Display.rect_size) / 2
 		$Computer/Display.show()
 	else:
 		bracket.hide()

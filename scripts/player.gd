@@ -64,12 +64,32 @@ func _process(delta):
 			a = thrust
 		if Input.is_action_pressed("action"):
 			pewpewdie()
-		if Input.is_action_just_pressed("target_cycle"):
+		if Input.is_action_just_pressed("target_nearest"):
 			var nodes = get_tree().get_nodes_in_group("baddies")
-			last_target += 1
-			if last_target >= len(nodes):
-				last_target = 0
-			target = nodes[last_target]
+			var d = -1
+			for n in nodes:
+				var d_ = world_position.distance_to(n.world_position)
+				if d < 0 or d > d_:
+					d = d_
+					target = n
+		if Input.is_action_just_pressed("target_back"):
+			var nodes = get_tree().get_nodes_in_group("baddies") + get_tree().get_nodes_in_group("neutral")
+			if len(nodes) == 0:
+				target = null
+			else:
+				last_target -= 1
+				if last_target < 0:
+					last_target = len(nodes) - 1
+				target = nodes[last_target]
+		if Input.is_action_just_pressed("target_cycle"):
+			var nodes = get_tree().get_nodes_in_group("baddies") + get_tree().get_nodes_in_group("neutral")
+			if len(nodes) == 0:
+				target = null
+			else:
+				last_target += 1
+				if last_target >= len(nodes):
+					last_target = 0
+				target = nodes[last_target]
 				
 			
 		# keep attitude between -PI and PI

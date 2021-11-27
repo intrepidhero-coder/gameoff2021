@@ -12,6 +12,7 @@ export (int) var health = max_health
 export var world_position = Vector2()
 var dead = false
 var virtual = false
+var ico = "Baddie"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -90,6 +91,7 @@ func _process(delta):
 		
 func die():
 	dead = true
+	remove_from_group("baddies")
 	$Sprite.hide()
 	$ExplosionParticles.emitting = true
 	$DeathTimer.start()

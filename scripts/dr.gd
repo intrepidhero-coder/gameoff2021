@@ -30,7 +30,7 @@ func reset():
 	accel = Vector2()
 	thrust = 200
 	attitude = 0
-	max_health = 1000
+	max_health = 100
 	health = max_health
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

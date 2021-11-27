@@ -1,11 +1,15 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/baddie.gd" type="Script" id=1]
 [ext_resource path="res://assets/baddie1.png" type="Texture" id=2]
 [ext_resource path="res://assets/blast1.mp3" type="AudioStream" id=3]
+[ext_resource path="res://assets/exp_part1.png" type="Texture" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 20.0
+
+[sub_resource type="Gradient" id=2]
+colors = PoolColorArray( 1, 1, 1, 1, 0, 0, 0, 1 )
 
 [node name="Baddie" type="Area2D"]
 collision_layer = 2
@@ -26,18 +30,6 @@ wait_time = 0.5
 [node name="DeathTimer" type="Timer" parent="."]
 one_shot = true
 
-[node name="ExplosionParticles" type="CPUParticles2D" parent="."]
-emitting = false
-amount = 64
-explosiveness = 1.0
-emission_shape = 1
-emission_sphere_radius = 1.0
-spread = 180.0
-gravity = Vector2( 0, 0 )
-initial_velocity = 50.0
-linear_accel = 5.0
-color = Color( 1, 0, 0, 1 )
-
 [node name="Label" type="Label" parent="."]
 visible = false
 margin_left = 32.0
@@ -50,6 +42,23 @@ __meta__ = {
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
+
+[node name="ExplosionParticles" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 64
+explosiveness = 1.0
+texture = ExtResource( 4 )
+emission_shape = 1
+emission_sphere_radius = 1.0
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 50.0
+angular_velocity = 10.0
+angular_velocity_random = 1.0
+orbit_velocity = 5.0
+orbit_velocity_random = 1.0
+linear_accel = 5.0
+color_ramp = SubResource( 2 )
 
 [connection signal="area_shape_entered" from="." to="." method="_on_Baddie_area_shape_entered"]
 [connection signal="timeout" from="PewPewCoolDown" to="." method="_on_PewPewCoolDown_timeout"]

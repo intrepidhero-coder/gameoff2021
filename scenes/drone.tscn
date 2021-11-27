@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scripts/drone.gd" type="Script" id=1]
 [ext_resource path="res://assets/drone1.png" type="Texture" id=2]
 [ext_resource path="res://assets/exp_part1.png" type="Texture" id=3]
+[ext_resource path="res://assets/short_exp.mp3" type="AudioStream" id=4]
+[ext_resource path="res://assets/blast1.mp3" type="AudioStream" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -53,6 +55,13 @@ margin_bottom = 13.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+volume_db = -20.0
 
 [connection signal="area_shape_entered" from="." to="." method="_on_Drone_area_shape_entered"]
 [connection signal="timeout" from="PewPewCoolDown" to="." method="_on_PewPewCoolDown_timeout"]

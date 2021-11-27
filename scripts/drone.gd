@@ -37,7 +37,7 @@ func pewpewdie():
 	if not $PewPewCoolDown.is_stopped():
 		return
 	$PewPewCoolDown.start()
-	#$AudioStreamPlayer2D.play()
+	$AudioStreamPlayer2D.play()
 	var root = get_tree().root
 	var newBullet = get_node("../PewPewBullet").create_instance()
 	newBullet.setSprite(1)
@@ -107,12 +107,14 @@ func die():
 	velocity = Vector2(0, 0)
 	$Sprite.hide()
 	$ExplosionParticles.emitting = true
+	$AudioStreamPlayer2D2.play()
 	$DeathTimer.start()
 	$CollisionShape2D.set_deferred("disabled", true)
 	remove_from_group("allies")
 	
 func _on_DeathTimer_timeout():
 	$DeathTimer.stop()
+	$AudioStreamPlayer2D2.stop()
 	$ExplosionParticles.emitting = false
 	#queue_free()
 

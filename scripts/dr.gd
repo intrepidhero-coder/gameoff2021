@@ -97,11 +97,13 @@ func die():
 	remove_from_group("baddies")
 	$Sprite.hide()
 	$ExplosionParticles.emitting = true
+	$AudioStreamPlayer2D2.play()
 	$DeathTimer.start()
 	$CollisionShape2D.set_deferred("disabled", true)
 	
 func _on_DeathTimer_timeout():
 	$DeathTimer.stop()
+	$AudioStreamPlayer2D2.stop()
 	$ExplosionParticles.emitting = false
 	# I was freeing these nodes but that caused problems
 	# with other nodes trying to refer them for targeting

@@ -124,11 +124,13 @@ func die():
 	velocity.y = 0
 	$Sprite.hide()
 	$ExplosionParticles.emitting = true
+	$AudioStreamPlayer2D2.play()
 	$DeathTimer.start()
 	$CollisionShape2D.set_deferred("disabled", true)
 	
 func _on_DeathTimer_timeout():
 	$DeathTimer.stop()
+	$AudioStreamPlayer2D2.stop()
 	$ExplosionParticles.emitting = false
 	$"..".end_mission()
 	#$"..".setup_state($"..".MENU)

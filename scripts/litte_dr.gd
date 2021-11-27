@@ -17,7 +17,7 @@ func _ready():
 	lines.append($Line0)
 	for f in range(5):
 		var l = $Line0.duplicate()
-		l.default_color = Color(1.0, 1.0, 0.5 + randf()*0.4, randf() * 0.5 + 0.5)
+		l.default_color = Color(1.0, 1.0, 0.5 + randf()*0.4, randf() * 0.5 + 0.2)
 		lines.append(l)
 		add_child(l)
 
@@ -29,14 +29,13 @@ func fire(gun, target):
 func _process(delta):
 	var player = get_node("../Player")
 	if gun and target:
-		var pos0 = gun.world_position - player.world_position
+		var pos0 = gun.world_position - target.world_position
 		# b/c Lines are positioned relative to the parent
 		# which is at the target
 		var pos1 = Vector2(0, 0)
-		var v = pos0 - pos1
 		for l in lines:
 			# TODO: add orthogonal offset
-			var r = Vector2(randi() % 20, randi() % 20)
+			var r = Vector2(randi() % 12, randi() % 12)
 			l.points[0] = pos0 + r
 			l.points[1] = pos1 + r
 

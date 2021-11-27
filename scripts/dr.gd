@@ -13,6 +13,7 @@ export var world_position = Vector2()
 var dead = false
 var virtual = false
 var ico = "Dr"
+var target = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -43,7 +44,7 @@ func pewpewdie():
 	var newBullet = get_node("../LittleDr").create_instance()
 	newBullet.collision_layer = 512
 	newBullet.collision_mask = 1
-	newBullet.fire(self, get_node("../Player"))
+	newBullet.fire(self, target)
 	root.add_child(newBullet)
 	newBullet.add_to_group("mission_despawn")
 	newBullet.show()
@@ -51,9 +52,17 @@ func pewpewdie():
 
 func _process(delta):
 	var player = get_node("../Player")
+	target = player
+	var nodes = get_tree().get_nodes_in_group("allies")
+	var d = world_position.distance_to(target.world_position)
+	for n in nodes:
+		var d_ = world_position.distance_to(n.world_position)
+		if d < 0 or d > d_:
+			d = d_
+			target = n
 	if health > 0:
 		var a = 0
-		var heading = world_position.angle_to_point(player.world_position)
+		var heading = world_position.angle_to_point(target.world_position)
 		$Label.text = "%.2f %.2f" % [attitude, heading]
 		var change = 1 # default to turn clockwise
 		if heading < attitude:
@@ -68,7 +77,6 @@ func _process(delta):
 			attitude = attitude - (2*PI)
 		if attitude < -PI:
 			attitude = attitude + (2*PI)
-		var d = world_position.distance_to(player.world_position)
 		if d > 10:
 			a = thrust
 		if d < 400:

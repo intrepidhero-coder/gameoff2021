@@ -26,6 +26,8 @@ Made with Godot
 [X] add HUD (energy/health)
 [X] skip briefing option
 [/] in game messages (w/ pause or not)
+[/] Baddies target allies
+[/] mission summary
 
 [ ] draw mothership
 [ ] add mothership scene
@@ -37,7 +39,6 @@ Made with Godot
 [ ] opening theme music
 [ ] opening logo
 [ ] Player fires two bullets
-[ ] Baddies target allies
 [ ] make flocks leave space between
 [ ] add standard wingmen
 [ ] Fix parallax background. Looks like there are multiple layers that toggle on/off?!

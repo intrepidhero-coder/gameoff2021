@@ -56,9 +56,17 @@ func pewpewdie():
 
 func _process(delta):
 	var player = get_node("../Player")
+	var target = player
+	var nodes = get_tree().get_nodes_in_group("allies")
+	var d = world_position.distance_to(target.world_position)
+	for n in nodes:
+		var d_ = world_position.distance_to(n.world_position)
+		if d < 0 or d > d_:
+			d = d_
+			target = n
 	if health > 0:
 		var a = 0
-		var heading = world_position.angle_to_point(player.world_position)
+		var heading = world_position.angle_to_point(target.world_position)
 		$Label.text = "%.2f %.2f" % [attitude, heading]
 		var change = 1 # default to turn clockwise
 		if heading < attitude:
@@ -73,7 +81,6 @@ func _process(delta):
 			attitude = attitude - (2*PI)
 		if attitude < -PI:
 			attitude = attitude + (2*PI)
-		var d = world_position.distance_to(player.world_position)
 		if d > 10:
 			a = thrust
 		if d < 400:

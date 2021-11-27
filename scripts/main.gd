@@ -31,10 +31,9 @@ func setup_state(newstate):
 	elif state == MISSION_MENU:
 		$MissionMenu.hide()
 	elif state == GAME:
-		pass
+		get_tree().paused = true
 	elif state == PAUSE:
 		$GameMenu.hide()
-		get_tree().paused = false
 	elif state == BRIEF:
 		$Briefing.hide()
 		start_mission()
@@ -45,9 +44,8 @@ func setup_state(newstate):
 	elif state == MISSION_MENU:
 		$MissionMenu.show()
 	elif state == GAME:
-		pass
+		get_tree().paused = false
 	elif state == PAUSE:
-		get_tree().paused = true
 		$GameMenu.show()
 	elif state == BRIEF:
 		$Briefing.speech = scenario_conditions[chosen_scenario].speech

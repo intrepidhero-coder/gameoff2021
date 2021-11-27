@@ -21,6 +21,7 @@ func init(pos, args):
 		member.controller = self
 		for g in args["groups"]:
 			member.add_to_group(g)
+		member.add_to_group("mission_despawn")
 		member.show()
 		get_node("..").add_child(member)
 

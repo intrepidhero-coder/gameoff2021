@@ -64,6 +64,12 @@ func _process(delta):
 		if d < 0 or d > d_:
 			d = d_
 			target = n
+	# anti-clumping
+	var neighbor_force = Vector2(0, 0)
+	for member in get_tree().get_nodes_in_group("baddies"):
+		if world_position.distance_to(member.world_position) < 16:
+			neighbor_force += (world_position - member.world_position).normalized() * 8
+	velocity += neighbor_force
 	if health > 0:
 		var a = 0
 		var heading = world_position.angle_to_point(target.world_position)

@@ -63,6 +63,12 @@ func _process(delta):
 		if controller.target:
 			if not controller.target.dead:
 				target = controller.target.world_position
+	# anti-clumping
+	var neighbor_force = Vector2(0, 0)
+	for member in controller.members:
+		if world_position.distance_to(member.world_position) < 16:
+			neighbor_force += (world_position - member.world_position).normalized() * 8
+	velocity += neighbor_force
 	if health > 0 and target:
 		var a = 0
 		var heading = world_position.angle_to_point(target)
@@ -103,6 +109,7 @@ func die():
 	$ExplosionParticles.emitting = true
 	$DeathTimer.start()
 	$CollisionShape2D.set_deferred("disabled", true)
+	remove_from_group("allies")
 	
 func _on_DeathTimer_timeout():
 	$DeathTimer.stop()

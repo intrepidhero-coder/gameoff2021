@@ -28,6 +28,7 @@ Made with Godot
 [/] in game messages (w/ pause or not)
 [/] Baddies target allies
 [/] mission summary
+[/] make flocks leave space between
 
 [ ] draw mothership
 [ ] add mothership scene
@@ -39,6 +40,5 @@ Made with Godot
 [ ] opening theme music
 [ ] opening logo
 [ ] Player fires two bullets
-[ ] make flocks leave space between
 [ ] add standard wingmen
 [ ] Fix parallax background. Looks like there are multiple layers that toggle on/off?!

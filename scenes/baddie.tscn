@@ -5,6 +5,7 @@
 [ext_resource path="res://assets/blast1.mp3" type="AudioStream" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
+radius = 20.0
 
 [node name="Baddie" type="Area2D"]
 collision_layer = 2

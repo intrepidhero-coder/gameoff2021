@@ -4,7 +4,8 @@
 [ext_resource path="res://assets/blast1.mp3" type="AudioStream" id=2]
 [ext_resource path="res://assets/bigbad.png" type="Texture" id=3]
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 88, 48 )
 
 [node name="Dr" type="Area2D"]
 collision_layer = 2

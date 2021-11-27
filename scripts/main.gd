@@ -9,6 +9,7 @@ const MISSION_MENU = 4
 var state = MENU
 var chosen_scenario = 0
 var scenario_conditions = [
+	preload("res://missions/training.gd").new(),
 	preload("res://missions/mission1.gd").new()
 ]
 var scenario_elapsed_time = 0
@@ -93,6 +94,9 @@ func _on_ScenarioEventTimer_timeout():
 			if event["after"]["group"] == "Player":
 				if "position" in event["after"] and $Player.world_position.distance_to(event["after"]["position"]) < 200:
 					trigger = true
+				elif "target" in event["after"]:
+					if $Player.target and event["after"]["target"] in $Player.target.get_groups():
+						trigger = true
 			else:
 				var flag = true
 				for n in get_tree().get_nodes_in_group(event["after"]["group"]):
@@ -104,6 +108,12 @@ func _on_ScenarioEventTimer_timeout():
 			event["triggered"] = true
 			if event["kind"] == "spawn":
 				spawn_event(event)
+			elif event["kind"] == "win":
+				# TODO: add mission summary
+				end_mission()
+				setup_state(MENU)
+			elif event["kind"] == "message":
+				$HUD.showMessage(event["message"])
 	scenario_elapsed_time += 1
 
 func spawn_event(event):
@@ -145,5 +155,7 @@ func start_mission():
 	# reset the player
 	$Player.reset()
 	$Player.show()
+	$HUD.reset()
 	$HUD.show()
+	$HUD.start()
 

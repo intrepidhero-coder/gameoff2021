@@ -15,18 +15,22 @@ var ico_wingman = preload("res://assets/ico_wingman.png")
 var name_to_ico = {"Dr": ico_dr, "Baddie": ico_bad, "Beacon": ico_beacon}
 var blips = {}
 var bracket = null
+const MARGIN = 8
+var running = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player = $"../Player"
 	parent = get_tree().root.get_node("Main")
 	var viewRect = parent.get_viewport_rect() 
-	#rect_size = viewRect.size
 	$TextureRect.rect_position = -viewRect.size / 2
-	$Health.rect_position.x = -viewRect.size.x / 2 + $TextureRect.rect_size.x
+	$Health.rect_position.x = -viewRect.size.x / 2 + $TextureRect.rect_size.x + MARGIN
 	$Health.rect_position.y = -viewRect.size.y / 2
 	$Sensor.rect_position.x = -viewRect.size.x / 2
-	$Sensor.rect_position.y = viewRect.size.y / 2 - 196
+	$Sensor.rect_position.y = viewRect.size.y / 2 - $Sensor.rect_size.y
+	$Com.rect_position.x = $Sensor.rect_position.x + $Sensor.rect_size.x + MARGIN
+	$Com.rect_position.y = viewRect.size.y / 2 - $Com.rect_size.y
+	$Com.text = ""
 	$Computer.rect_position = viewRect.size / 2 - $Computer.rect_size
 	$Computer/Display.rect_position = ($Computer.rect_size - $Computer/Display.rect_size) / 2
 	bracket = Sprite.new()
@@ -35,9 +39,13 @@ func _ready():
 	add_child(bracket)
 
 func reset():
+	running = false
 	for b in blips.values():
 		b.queue_free()
 	blips = {}
+	
+func start():
+	running = true
 
 func set_health(x):
 	$Health.value = x
@@ -48,6 +56,8 @@ func calc_pos(node):
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if not running:
+		return
 	# update the sensor
 	for n in get_tree().get_nodes_in_group("neutral"):
 		if not n in blips:
@@ -83,3 +93,12 @@ func _process(delta):
 	else:
 		bracket.hide()
 		$Computer/Display.hide()
+
+func showMessage(msg):
+	$Com.text = msg
+	$ComTimer.start()
+
+func _on_ComTimer_timeout():
+	# initially I thought I might use this to clear the message but while making the tutorial
+	# it seemed better to allow the mission event framework to directly control the messages
+	$ComTimer.stop()

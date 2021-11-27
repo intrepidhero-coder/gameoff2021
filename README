@@ -29,11 +29,13 @@ Made with Godot
 [ ] support game controller
 [ ] briefing scene transitions (fade, wipe, etc)
 [X] skip briefing option
-[ ] in game messages
+[ ] in game messages (w/ pause or not)
 [ ] better explosions
 [ ] explosion sounds
 [ ] in game music
 [ ] opening theme music
 [ ] opening logo
-[ ] Finish player targeting action
-[ ] Add computer display screens for each ship
+[/] Finish player targeting action
+[/] Add computer display screens for each ship
+[/] Tutorial Mission
+[ ] Player fires two bullets

@@ -53,6 +53,11 @@ var events = [
 		"number": 1,
 		"position": Vector2(0, 0),
 		"triggered": false
+	},
+	{
+		"after": {"group": "beta", "dead": true},
+		"kind": "win",
+		"triggered": false
 	}
 ]
 

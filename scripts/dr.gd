@@ -7,7 +7,7 @@ export var velocity = Vector2()
 export var accel = Vector2()
 export var thrust = 200
 export var attitude = 0
-export (int) var max_health = 100
+export (int) var max_health = 1000
 export (int) var health = max_health
 export var world_position = Vector2()
 var dead = false
@@ -29,7 +29,7 @@ func reset():
 	accel = Vector2()
 	thrust = 200
 	attitude = 0
-	max_health = 100
+	max_health = 1000
 	health = max_health
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

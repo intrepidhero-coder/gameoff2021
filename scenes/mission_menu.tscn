@@ -13,7 +13,7 @@ __meta__ = {
 
 [node name="GridContainer" type="GridContainer" parent="."]
 margin_right = 411.0
-margin_bottom = 161.0
+margin_bottom = 240.0
 custom_constants/vseparation = 10
 custom_constants/hseparation = 20
 columns = 2
@@ -45,7 +45,7 @@ margin_top = 43.0
 margin_right = 238.0
 margin_bottom = 112.0
 custom_fonts/font = ExtResource( 2 )
-text = "On Patrol"
+text = "Training"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -62,10 +62,32 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Back" type="Button" parent="GridContainer"]
+[node name="Select2" type="Button" parent="GridContainer"]
 margin_top = 122.0
 margin_right = 238.0
-margin_bottom = 161.0
+margin_bottom = 191.0
+custom_fonts/font = ExtResource( 2 )
+text = "On Patrol"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="GridContainer"]
+margin_left = 258.0
+margin_top = 122.0
+margin_right = 411.0
+margin_bottom = 191.0
+custom_fonts/font = ExtResource( 2 )
+text = "0/0
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back" type="Button" parent="GridContainer"]
+margin_top = 201.0
+margin_right = 238.0
+margin_bottom = 240.0
 custom_fonts/font = ExtResource( 2 )
 text = "Back to Menu"
 __meta__ = {
@@ -73,4 +95,5 @@ __meta__ = {
 }
 
 [connection signal="pressed" from="GridContainer/Select1" to="." method="_on_Select1_pressed"]
+[connection signal="pressed" from="GridContainer/Select2" to="." method="_on_Select2_pressed"]
 [connection signal="pressed" from="GridContainer/Back" to="." method="_on_Back_pressed"]

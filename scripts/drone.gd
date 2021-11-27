@@ -50,6 +50,7 @@ func pewpewdie():
 	newBullet.velocity = Vector2(sin(a), -cos(a)) * newBullet.speed
 	newBullet.rotation = a
 	newBullet.speed = 1000
+	newBullet.damage = 5
 	root.add_child(newBullet)
 	newBullet.add_to_group("mission_despawn")
 	newBullet.show()

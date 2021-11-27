@@ -89,10 +89,12 @@ func _on_ScenarioEventTimer_timeout():
 	for event in scenario.events:
 		var trigger = false
 		if event["triggered"]:
+			# skip old events
 			continue
+		# determine if the event should be triggered
 		if "time" in event["after"] and scenario_elapsed_time >= event["after"]["time"]:
 			trigger = true
-		if "group" in event["after"]:
+		elif "group" in event["after"]:
 			if event["after"]["group"] == "Player":
 				if "position" in event["after"] and $Player.world_position.distance_to(event["after"]["position"]) < 200:
 					trigger = true
@@ -100,12 +102,15 @@ func _on_ScenarioEventTimer_timeout():
 					if $Player.target and event["after"]["target"] in $Player.target.get_groups():
 						trigger = true
 			else:
-				var flag = true
-				for n in get_tree().get_nodes_in_group(event["after"]["group"]):
-					if "dead" in event["after"] and not n.dead:
-						flag = false
-						break
-				trigger = flag
+				var group = get_tree().get_nodes_in_group(event["after"]["group"])
+				# avoid check on groups that haven't been spawned yet
+				if len(group) > 0:
+					var flag = true
+					for n in group:
+						if "dead" in event["after"] and not n.dead:
+							flag = false
+							break
+					trigger = flag
 		if trigger:
 			event["triggered"] = true
 			if event["kind"] == "spawn":

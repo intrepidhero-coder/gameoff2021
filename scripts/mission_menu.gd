@@ -19,3 +19,7 @@ func _on_Back_pressed():
 func _on_Select1_pressed():
 	parent.setup_scenario(0)
 	parent.setup_state(parent.BRIEF)
+
+func _on_Select2_pressed():
+	parent.setup_scenario(1)
+	parent.setup_state(parent.BRIEF)

@@ -30,6 +30,7 @@ func reset():
 	health = max_health
 	target = null
 	$Sprite.show()
+	$CollisionShape2D.set_deferred("disabled", false)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func pewpewdie():
@@ -118,6 +119,7 @@ func die():
 	
 func _on_DeathTimer_timeout():
 	$DeathTimer.stop()
+	$ExplosionParticles.emitting = false
 	$"..".end_mission()
 	$"..".setup_state($"..".MENU)
 

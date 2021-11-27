@@ -19,15 +19,6 @@ var events = [
 	},
 	{
 		"after": {"time": 0},
-		"groups": ["gamma", "baddies"],
-		"kind": "spawn",
-		"scene": "Dr",
-		"number": 1,
-		"position": Vector2(0, 0),
-		"triggered": false
-	},
-	{
-		"after": {"time": 0},
 		"groups": ["alpha", "baddies"],
 		"kind": "spawn", 
 		"scene": "Baddie", 

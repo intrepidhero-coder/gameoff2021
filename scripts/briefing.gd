@@ -44,10 +44,13 @@ func done():
 	$PlayerTimer.stop()
 	$QueenTimer.stop()
 	$SpeechTimer.stop()
+	$AnimationPlayer.play("Fade")
+	yield($AnimationPlayer, "animation_finished")
 	parent.setup_state(parent.GAME)
 
 func reset():
 	current_line = -1
+	$ColorRect.color = Color(0, 0, 0, 0)
 	advance_speech()
 	$SpeechTimer.start()
 	$PlayerTimer.start()

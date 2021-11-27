@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://assets/player_frames.png" type="Texture" id=1]
 [ext_resource path="res://assets/queen_frames.png" type="Texture" id=2]
@@ -211,6 +211,22 @@ animations = [ {
 0/shapes = [  ]
 0/z_index = 0
 
+[sub_resource type="Animation" id=23]
+resource_name = "Fade"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
 [node name="Briefing" type="ReferenceRect"]
 margin_left = 8.47559
 margin_right = 1928.48
@@ -308,6 +324,19 @@ wait_time = 0.2
 
 [node name="QueenTimer" type="Timer" parent="."]
 wait_time = 0.2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+playback_speed = 0.5
+anims/Fade = SubResource( 23 )
 
 [connection signal="timeout" from="SpeechTimer" to="." method="_on_SpeechTimer_timeout"]
 [connection signal="timeout" from="PlayerTimer" to="." method="_on_PlayerTimer_timeout"]

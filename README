@@ -29,11 +29,11 @@ Made with Godot
 [/] Baddies target allies
 [/] mission summary
 [/] make flocks leave space between
+[/] briefing scene transitions (fade, wipe, etc)
 
 [ ] draw mothership
 [ ] add mothership scene
 [ ] support game controller
-[ ] briefing scene transitions (fade, wipe, etc)
 [ ] better explosions
 [ ] explosion sounds
 [ ] in game music

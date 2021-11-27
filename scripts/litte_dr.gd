@@ -10,6 +10,7 @@ var lines = []
 var gun = null
 var target = null
 const HITLIMIT = 10
+var hits = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -48,13 +49,19 @@ func _process(delta):
 		position = world_position - player.world_position
 
 func _on_Bullet_area_entered(area):
-	$EffectTime.start()
-	# duplicate the CollisionShape (up to a limit)
-	# and set the position to the target
-	var d = $CollisionShape2D.duplicate()
-	d.get_shape().set_radius(128)
-	d.position = area.position
-	add_child(d)
+	hits += 1
+	if hits <= HITLIMIT:
+		$EffectTime.start()
+		# duplicate the CollisionShape (up to a limit)
+		# and set the position to the target
+		var d = $CollisionShape2D.duplicate()
+		d.get_shape().set_radius(128)
+		d.position = area.position
+		add_child(d)
+		var l = $Line0.duplicate()
+		l.points[0] = area.world_position - target.world_position
+		l.points[1] = Vector2(0, 0)
+		add_child(l)
 
 func _on_BeamTime_timeout():
 	# start the effect animation

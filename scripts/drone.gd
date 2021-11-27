@@ -98,6 +98,7 @@ func _process(delta):
 		
 func die():
 	dead = true
+	velocity = Vector2(0, 0)
 	$Sprite.hide()
 	$ExplosionParticles.emitting = true
 	$DeathTimer.start()

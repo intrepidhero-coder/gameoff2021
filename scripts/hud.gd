@@ -7,6 +7,8 @@ var bad_blip = preload("res://assets/sensor_red.png")
 var neutral_blip = preload("res://assets/sensor_blue.png")
 var ally_blip = preload("res://assets/sensor_green.png")
 var blips = {}
+var select_blip = preload("res://assets/sensor_select.png")
+var bracket = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,6 +22,10 @@ func _ready():
 	$Sensor.rect_position.x = -viewRect.size.x / 2
 	$Sensor.rect_position.y = viewRect.size.y / 2 - 196
 	$Computer.rect_position = viewRect.size / 2 - $Computer.rect_size
+	bracket = Sprite.new()
+	bracket.texture = select_blip
+	bracket.hide()
+	add_child(bracket)
 
 func reset():
 	for b in blips.values():
@@ -61,3 +67,11 @@ func _process(delta):
 		else:
 			blips.erase(n)
 			b.queue_free()
+	if player.target and not player.target.dead:
+		bracket.show()
+		bracket.position = calc_pos(player.target)
+		$Computer/Display.texture = player.target.get_node("Sprite").texture
+		$Computer/Display.show()
+	else:
+		bracket.hide()
+		$Computer/Display.hide()

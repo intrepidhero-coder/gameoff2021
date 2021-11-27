@@ -28,6 +28,13 @@ stretch_margin_top = 10
 
 [node name="Computer" type="TextureRect" parent="."]
 texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Display" type="TextureRect" parent="Computer"]
+margin_right = 40.0
+margin_bottom = 40.0
 
 [node name="Sensor" type="TextureRect" parent="."]
 texture = ExtResource( 6 )

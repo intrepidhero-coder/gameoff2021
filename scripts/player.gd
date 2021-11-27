@@ -11,6 +11,8 @@ export (int) var max_health = 100
 export (int) var health = max_health
 export var world_position = Vector2()
 var god_mode = false
+var target = null
+var last_target = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -62,6 +64,14 @@ func _process(delta):
 			a = thrust
 		if Input.is_action_pressed("action"):
 			pewpewdie()
+		if Input.is_action_just_pressed("target_cycle"):
+			var nodes = get_tree().get_nodes_in_group("baddies")
+			last_target += 1
+			if last_target >= len(nodes):
+				last_target = 0
+			target = nodes[last_target]
+				
+			
 		# keep attitude between -PI and PI
 		if attitude > PI:
 			attitude = attitude - (2*PI)
@@ -93,10 +103,12 @@ func _on_PewPewCoolDown_timeout():
 	$PewPewCoolDown.stop()
 	$AudioStreamPlayer2D.stop()
 
-
 func _on_Player_area_shape_entered(area_id, area, area_shape, local_shape):
 	#$CollisionShape2D.set_deferred("disabled", true)
 	if not god_mode:
 		health -= area.damage
 		if health <= 0:
 			die()
+
+func set_target(n):
+	target = n

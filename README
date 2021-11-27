@@ -16,9 +16,10 @@ Made with Godot
 [X] draw talking heads
 [ ] add standard wingmen
 [X] add flocking wingmen (drones)
+[ ] make flocks leave space between
 [X] draw drones
-[ ] add Little Dr. Baddies (slow)
-[ ] add Little Dr. weapons
+[X] add Little Dr. Baddies (slow)
+[X] add Little Dr. weapons
     each time a ship is hit with Little Dr. it spawns a new little Dr effect area (circle)
     that is in the collision layer for little Dr projectiles
     the circle starts at radius 1 and reaches radius 32? after 0.5s
@@ -27,10 +28,12 @@ Made with Godot
 [X] add HUD (energy/health)
 [ ] support game controller
 [ ] briefing scene transitions (fade, wipe, etc)
-[ ] skip briefing option
+[X] skip briefing option
 [ ] in game messages
 [ ] better explosions
 [ ] explosion sounds
 [ ] in game music
 [ ] opening theme music
 [ ] opening logo
+[ ] Finish player targeting action
+[ ] Add computer display screens for each ship

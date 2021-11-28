@@ -12,37 +12,38 @@ __meta__ = {
 }
 
 [node name="GridContainer" type="GridContainer" parent="."]
-margin_right = 411.0
-margin_bottom = 240.0
+margin_right = 746.0
+margin_bottom = 477.0
 custom_constants/vseparation = 10
 custom_constants/hseparation = 20
 columns = 2
 
 [node name="Label" type="Label" parent="GridContainer"]
-margin_right = 238.0
+margin_right = 250.0
 margin_bottom = 33.0
 custom_fonts/font = ExtResource( 2 )
 text = "Choose Mission"
 
 [node name="Label0" type="Label" parent="GridContainer"]
-margin_left = 258.0
-margin_right = 411.0
+margin_left = 270.0
+margin_right = 746.0
 margin_bottom = 33.0
 custom_fonts/font = ExtResource( 2 )
-text = "Highscore"
+text = "Highscore (Kills/Hits/Shots)"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Line2D" type="Line2D" parent="GridContainer/Label0"]
-position = Vector2( 0, -7 )
+position = Vector2( 1.76766, -7 )
+scale = Vector2( 1.88383, 1 )
 points = PoolVector2Array( 0, 40, 250, 40 )
 width = 2.0
 default_color = Color( 0.372549, 0.47451, 1, 1 )
 
 [node name="Select1" type="Button" parent="GridContainer"]
 margin_top = 43.0
-margin_right = 238.0
+margin_right = 250.0
 margin_bottom = 112.0
 custom_fonts/font = ExtResource( 2 )
 text = "Training"
@@ -51,9 +52,9 @@ __meta__ = {
 }
 
 [node name="Label1" type="Label" parent="GridContainer"]
-margin_left = 258.0
+margin_left = 270.0
 margin_top = 43.0
-margin_right = 411.0
+margin_right = 746.0
 margin_bottom = 112.0
 custom_fonts/font = ExtResource( 2 )
 text = "0/0
@@ -64,7 +65,7 @@ __meta__ = {
 
 [node name="Select2" type="Button" parent="GridContainer"]
 margin_top = 122.0
-margin_right = 238.0
+margin_right = 250.0
 margin_bottom = 191.0
 custom_fonts/font = ExtResource( 2 )
 text = "On Patrol"
@@ -73,9 +74,9 @@ __meta__ = {
 }
 
 [node name="Label2" type="Label" parent="GridContainer"]
-margin_left = 258.0
+margin_left = 270.0
 margin_top = 122.0
-margin_right = 411.0
+margin_right = 746.0
 margin_bottom = 191.0
 custom_fonts/font = ExtResource( 2 )
 text = "0/0
@@ -84,10 +85,76 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Back" type="Button" parent="GridContainer"]
+[node name="Select3" type="Button" parent="GridContainer"]
 margin_top = 201.0
-margin_right = 238.0
-margin_bottom = 240.0
+margin_right = 250.0
+margin_bottom = 270.0
+custom_fonts/font = ExtResource( 2 )
+text = "Counter Attack"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="GridContainer"]
+margin_left = 270.0
+margin_top = 201.0
+margin_right = 746.0
+margin_bottom = 270.0
+custom_fonts/font = ExtResource( 2 )
+text = "0/0
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Select4" type="Button" parent="GridContainer"]
+margin_top = 280.0
+margin_right = 250.0
+margin_bottom = 349.0
+custom_fonts/font = ExtResource( 2 )
+text = "Battleship"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label4" type="Label" parent="GridContainer"]
+margin_left = 270.0
+margin_top = 280.0
+margin_right = 746.0
+margin_bottom = 349.0
+custom_fonts/font = ExtResource( 2 )
+text = "0/0
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Select5" type="Button" parent="GridContainer"]
+margin_top = 359.0
+margin_right = 250.0
+margin_bottom = 428.0
+custom_fonts/font = ExtResource( 2 )
+text = "Evacuate"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label5" type="Label" parent="GridContainer"]
+margin_left = 270.0
+margin_top = 359.0
+margin_right = 746.0
+margin_bottom = 428.0
+custom_fonts/font = ExtResource( 2 )
+text = "0/0
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back" type="Button" parent="GridContainer"]
+margin_top = 438.0
+margin_right = 250.0
+margin_bottom = 477.0
 custom_fonts/font = ExtResource( 2 )
 text = "Back to Menu"
 __meta__ = {
@@ -96,4 +163,7 @@ __meta__ = {
 
 [connection signal="pressed" from="GridContainer/Select1" to="." method="_on_Select1_pressed"]
 [connection signal="pressed" from="GridContainer/Select2" to="." method="_on_Select2_pressed"]
+[connection signal="pressed" from="GridContainer/Select3" to="." method="_on_Select3_pressed"]
+[connection signal="pressed" from="GridContainer/Select4" to="." method="_on_Select4_pressed"]
+[connection signal="pressed" from="GridContainer/Select5" to="." method="_on_Select5_pressed"]
 [connection signal="pressed" from="GridContainer/Back" to="." method="_on_Back_pressed"]

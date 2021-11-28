@@ -44,6 +44,7 @@ func reset():
 	for b in blips.values():
 		b.queue_free()
 	blips = {}
+	$Com.text = ""
 	
 func start():
 	running = true

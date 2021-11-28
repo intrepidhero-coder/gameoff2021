@@ -7,6 +7,7 @@ export var velocity = Vector2()
 export var accel = Vector2()
 export var thrust = 200
 export var attitude = 0
+export var max_v = 200
 export (int) var max_health = 1000
 export (int) var health = max_health
 export var world_position = Vector2()
@@ -21,7 +22,7 @@ func _ready():
 	#position.y = get_viewport().size.y / 2
 	pause_mode = Node.PAUSE_MODE_STOP
 	
-func init(pos, args := null):
+func init(pos, args):
 	reset()
 	world_position = pos
 
@@ -30,7 +31,7 @@ func reset():
 	accel = Vector2()
 	thrust = 200
 	attitude = 0
-	max_health = 100
+	max_health = 500
 	health = max_health
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -87,13 +88,12 @@ func _process(delta):
 			accel = Vector2(sin(theta), -cos(theta)) * a * delta
 			velocity += accel
 		# clamp velocity at max absolute value
-		if velocity.length() > 300:
-			velocity = velocity.normalized() * 300
+		if velocity.length() > max_v:
+			velocity = velocity.normalized() * max_v
 		world_position += velocity * delta
 	position = world_position - player.world_position
 		
 func die():
-	dead = true
 	remove_from_group("baddies")
 	$Sprite.hide()
 	$ExplosionParticles.emitting = true
@@ -102,6 +102,7 @@ func die():
 	$CollisionShape2D.set_deferred("disabled", true)
 	
 func _on_DeathTimer_timeout():
+	dead = true
 	$DeathTimer.stop()
 	$AudioStreamPlayer2D2.stop()
 	$ExplosionParticles.emitting = false

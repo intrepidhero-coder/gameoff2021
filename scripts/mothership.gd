@@ -7,7 +7,8 @@ export var velocity = Vector2()
 export var accel = Vector2()
 export var thrust = 200
 export var attitude = 0
-export (int) var max_health = 100
+export var max_v = 150
+export (int) var max_health = 500
 export (int) var health = max_health
 export var world_position = Vector2()
 var dead = false
@@ -61,8 +62,8 @@ func _process(delta):
 			accel = Vector2(sin(theta), -cos(theta)) * a * delta
 			velocity += accel
 		# clamp velocity at max absolute value
-		if velocity.length() > 300:
-			velocity = velocity.normalized() * 300
+		if velocity.length() > max_v:
+			velocity = velocity.normalized() * max_v
 		world_position += velocity * delta
 	position = world_position - player.world_position
 		

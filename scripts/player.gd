@@ -7,6 +7,7 @@ export var velocity = Vector2()
 export var accel = Vector2()
 export var thrust = 200
 export var attitude = 0
+export var max_v = 500
 export (int) var max_health = 100
 export (int) var health = max_health
 export var world_position = Vector2()
@@ -17,6 +18,7 @@ var last_target = 0
 var kills = 0
 var shots = 0
 var hits = 0
+var dead = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -37,6 +39,7 @@ func reset():
 	kills = 0
 	shots = 0
 	hits = 0
+	dead = false
 	$Sprite.show()
 	$CollisionShape2D.set_deferred("disabled", false)
 
@@ -116,13 +119,14 @@ func _process(delta):
 			accel = Vector2(-sin(attitude), cos(attitude)) * a * delta
 			velocity += accel
 		# clamp velocity at max absolute value
-		if velocity.length() > 500:
-			velocity = velocity.normalized() * 500
+		if velocity.length() > max_v:
+			velocity = velocity.normalized() * max_v
 		world_position += velocity * delta
 		
 func die():
 	velocity.x = 0
 	velocity.y = 0
+	dead = true
 	$Sprite.hide()
 	$ExplosionParticles.emitting = true
 	$AudioStreamPlayer2D2.play()

@@ -29,6 +29,7 @@ var events = [
 		"scene": "Baddie", 
 		"number": 4, 
 		"position": Vector2(-2000, 0),
+		"args": {"fixed_target": "magenta"},
 		"triggered": false
 	},
 	{
@@ -38,6 +39,7 @@ var events = [
 		"scene": "Baddie", 
 		"number": 4, 
 		"position": Vector2(-2000, 0),
+		"args": {"fixed_target": "magenta"},
 		"triggered": false
 	},
 	{
@@ -46,7 +48,8 @@ var events = [
 		"kind": "spawn", 
 		"scene": "Baddie", 
 		"number": 4, 
-		"position": Vector2(-2000, 0),
+		"position": Vector2(-1000, 0),
+		"args": {"fixed_target": "magenta"},
 		"triggered": false
 	},
 	{
@@ -55,7 +58,8 @@ var events = [
 		"kind": "spawn", 
 		"scene": "Baddie", 
 		"number": 10, 
-		"position": Vector2(-2000, 0),
+		"position": Vector2(0, 0),
+		"args": {"fixed_target": "magenta"},
 		"triggered": false
 	},
 	{
@@ -65,6 +69,15 @@ var events = [
 		"scene": "Dr", 
 		"number": 1, 
 		"position": Vector2(-2000, 0),
+		"triggered": false
+	},
+	{
+		"after": {"time": 40},
+		"groups": ["zeta", "baddies"],
+		"kind": "spawn", 
+		"scene": "Dr", 
+		"number": 1, 
+		"position": Vector2(0, 0),
 		"triggered": false
 	},
 	{

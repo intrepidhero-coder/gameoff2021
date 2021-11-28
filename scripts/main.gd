@@ -12,6 +12,9 @@ var chosen_scenario = 0
 var scenario_conditions = [
 	preload("res://missions/training.gd"),
 	preload("res://missions/mission1.gd"),
+	preload("res://missions/mission2.gd"),
+	preload("res://missions/mission3.gd"),
+	preload("res://missions/mission4.gd"),
 	preload("res://missions/testmission.gd")
 ]
 var scenario_elapsed_time = 0
@@ -116,6 +119,9 @@ func _on_ScenarioEventTimer_timeout():
 				if len(group) > 0:
 					var flag = true
 					for n in group:
+						if "position" in event["after"] and n.world_position.distance_to(event["after"]["position"]) > 200:
+							flag = false
+							break
 						if "dead" in event["after"] and not n.dead:
 							flag = false
 							break
@@ -125,7 +131,9 @@ func _on_ScenarioEventTimer_timeout():
 			if event["kind"] == "spawn":
 				spawn_event(event)
 			elif event["kind"] == "win":
-				# TODO: add mission summary
+				end_mission()
+			elif event["kind"] == "loss":
+				$Player.dead = true
 				end_mission()
 			elif event["kind"] == "message":
 				$HUD.showMessage(event["message"])
@@ -140,10 +148,10 @@ func spawn_event(event):
 		for g in event["groups"]:
 			s.add_to_group(g)
 		s.add_to_group("mission_despawn")
+		var args = {}
 		if "args" in event:
-			s.init(event["position"] + offset, event["args"])
-		else:
-			s.init(event["position"] + offset)
+			args = event["args"]
+		s.init(event["position"] + offset, args)
 		s.show()
 		add_child(s)
 		if "action" in event and event["action"] == "player_target":
@@ -160,7 +168,7 @@ func end_mission():
 	$ScenarioEventTimer.stop()
 	$MissionSummary.display($Player.shots, $Player.hits, $Player.kills, $Player.dead)
 	if not $Player.dead:
-		$MissionMenu.scores[chosen_scenario] = [$Player.shots, $Player.hits, $Player.kills]
+		$MissionMenu.scores[chosen_scenario] = [$Player.kills, $Player.hits, $Player.shots]
 	setup_state(MISSION_SUMMARY)
 	$Player.hide()
 	$HUD.hide()

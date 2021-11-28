@@ -14,9 +14,13 @@ var ico = "Beacon"
 func _ready():
 	player = get_node("../Player")
 	
-func init(pos):
+func init(pos, args):
 	visible = true
 	world_position = pos
+	if "neutral" in get_groups():
+		# don't collide
+		collision_layer = 5
+		collision_mask = 5
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

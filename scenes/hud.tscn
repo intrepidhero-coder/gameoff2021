@@ -41,6 +41,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Line2D" type="Line2D" parent="Computer"]
+visible = false
+position = Vector2( 4, 75 )
+points = PoolVector2Array( 0, 0, 72, 0 )
+width = 4.0
+
 [node name="Sensor" type="TextureRect" parent="."]
 texture = ExtResource( 6 )
 __meta__ = {

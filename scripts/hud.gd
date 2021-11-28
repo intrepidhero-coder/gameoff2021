@@ -92,9 +92,12 @@ func _process(delta):
 		$Computer/Display.texture = name_to_ico[player.target.ico]
 		$Computer/Display.rect_position = ($Computer.rect_size - $Computer/Display.rect_size) / 2
 		$Computer/Display.show()
+		$Computer/Line2D.show()
+		$Computer/Line2D.points[1].x = float(72) / player.target.max_health * player.target.health
 	else:
 		bracket.hide()
 		$Computer/Display.hide()
+		$Computer/Line2D.hide()
 
 func showMessage(msg):
 	$Com.text = msg

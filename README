@@ -32,9 +32,9 @@ Made with Godot
 [/] briefing scene transitions (fade, wipe, etc)
 [/] better explosions
 [/] explosion sounds
+[/] draw mothership
+[/] add mothership scene
 
-[ ] draw mothership
-[ ] add mothership scene
 [ ] support game controller
 [ ] in game music
 [ ] opening theme music
@@ -42,3 +42,15 @@ Made with Godot
 [ ] Player fires two bullets
 [ ] add standard wingmen
 [ ] Fix parallax background. Looks like there are multiple layers that toggle on/off?!
+
+[ ] revamp patrol mission
+[ ] defend mothership during evac
+[ ] Destroy squadron
+[ ] Destroy starship
+[ ] place scores on mission screen
+
+[ ] Take screenshots
+[ ] Cover image
+[ ] Description
+[ ] submit
+

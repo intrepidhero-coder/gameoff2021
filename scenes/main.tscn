@@ -75,6 +75,8 @@ visible = false
 [node name="Dr" parent="." instance_placeholder="res://scenes/dr.tscn"]
 visible = false
 
+[node name="Mothership" parent="." instance_placeholder="res://scenes/mothership.tscn"]
+
 [node name="LittleDr" parent="." instance_placeholder="res://scenes/little_dr.tscn"]
 visible = false
 

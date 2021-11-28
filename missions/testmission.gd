@@ -26,13 +26,23 @@ var events = [
 		"position": Vector2(-500, 500),
 		"triggered": false
 	},
-		{
+	{
 		"after": {"time": 0},
 		"groups": ["gamma", "baddies"],
 		"kind": "spawn", 
 		"scene": "Dr", 
 		"number": 1, 
 		"position": Vector2(-500, -500),
+		"triggered": false
+	},
+	{
+		"after": {"time": 0},
+		"groups": ["momma", "allies"],
+		"kind": "spawn", 
+		"scene": "Mothership", 
+		"number": 1, 
+		"position": Vector2(500, 0),
+		"args": {"target": Vector2(-1000, 0)},
 		"triggered": false
 	},
 	{

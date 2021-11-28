@@ -26,4 +26,5 @@ func _on_Test_Mode_pressed():
 	parent.setup_scenario(-1)
 	parent.start_mission()
 	parent.setup_state(parent.GAME)
-	$"../Player".god_mode = true
+	if Input.is_action_pressed("cheat"):
+		$"../Player".god_mode = true

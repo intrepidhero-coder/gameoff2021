@@ -40,7 +40,7 @@ margin_top = 86.0
 margin_right = 250.0
 margin_bottom = 125.0
 custom_fonts/font = ExtResource( 1 )
-text = "Test Mode"
+text = "Furball"
 __meta__ = {
 "_edit_use_anchors_": false
 }

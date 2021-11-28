@@ -27,6 +27,7 @@ func _ready():
 	pass
 
 func reset():
+	god_mode = false
 	world_position = Vector2()
 	velocity = Vector2()
 	accel = Vector2()

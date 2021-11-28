@@ -13,7 +13,10 @@ func _ready():
 func _process(delta):
 	pass
 
-func display(shots, hits, kills):
-	$Label.text = "Kills: %d Hits: %d Shots: %d" % [kills, hits, shots]
+func display(shots, hits, kills, dead):
+	if dead:
+		$Label.text = "Mission Failed"
+	else:
+		$Label.text = "Kills: %d Hits: %d Shots: %d" % [kills, hits, shots]
 	var viewRect = parent.get_viewport_rect() 
 	#$Label.rect_position = -(viewRect.size - $Label.rect_size) / 2

@@ -158,8 +158,9 @@ func quit():
 func end_mission():
 	get_tree().paused = true
 	$ScenarioEventTimer.stop()
-	$MissionSummary.display($Player.shots, $Player.hits, $Player.kills)
-	$MissionMenu.scores[chosen_scenario] = [$Player.shots, $Player.hits, $Player.kills]
+	$MissionSummary.display($Player.shots, $Player.hits, $Player.kills, $Player.dead)
+	if not $Player.dead:
+		$MissionMenu.scores[chosen_scenario] = [$Player.shots, $Player.hits, $Player.kills]
 	setup_state(MISSION_SUMMARY)
 	$Player.hide()
 	$HUD.hide()

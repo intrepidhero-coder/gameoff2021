@@ -62,7 +62,7 @@ var events = [
 		"triggered": false
 	},
 	{
-		"after": {"group": "gamma", "dead": true},
+		"after": {"group": "beta", "dead": true},
 		"kind": "win",
 		"triggered": false
 	},

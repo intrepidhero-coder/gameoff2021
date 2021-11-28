@@ -45,7 +45,7 @@ Made with Godot
 [ ] Fix parallax background. Looks like there are multiple layers that toggle on/off?!
 
 [/] replace escape key
-[ ] computer shows target health
+[/] computer shows target health
 
 [/] revamp patrol mission
 [/] defend mothership during evac

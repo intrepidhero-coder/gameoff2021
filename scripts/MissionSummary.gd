@@ -19,4 +19,5 @@ func display(shots, hits, kills, dead):
 	else:
 		$Label.text = "Kills: %d Hits: %d Shots: %d" % [kills, hits, shots]
 	var viewRect = parent.get_viewport_rect() 
-	#$Label.rect_position = -(viewRect.size - $Label.rect_size) / 2
+	#$Label2.rect_position.x = -(viewRect.size.x - $Label2.rect_size.x) / 2
+	#$Label2.rect_position.y = viewRect.size.y / 2

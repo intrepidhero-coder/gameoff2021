@@ -88,12 +88,12 @@ func get_input():
 		if Input.is_action_just_pressed("escape"):
 			setup_state(PAUSE)
 	elif state == PAUSE:
-		if Input.is_action_just_pressed("escape"):
+		if Input.is_action_just_pressed("escape") or Input.is_action_just_pressed("action"):
 			setup_state(GAME)
 	elif state == BRIEF:
 		pass
 	elif state == MISSION_SUMMARY:
-		if Input.is_action_just_pressed("escape"):
+		if Input.is_action_just_pressed("escape") or Input.is_action_just_pressed("action"):
 			setup_state(MENU)
 
 # checks for scenario events

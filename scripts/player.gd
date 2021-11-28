@@ -70,7 +70,7 @@ func pewpewdie():
 
 func _process(delta):
 	$".."/HUD.set_health(health)
-	if health > 0:
+	if health > 0 and $"..".state == $"..".GAME:
 		var a = 0
 		if Input.is_action_pressed("right"):
 			attitude += (2*PI) * delta

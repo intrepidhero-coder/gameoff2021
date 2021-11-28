@@ -12,13 +12,29 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -119.0
+margin_left = -217.419
 margin_top = -16.5
-margin_right = 119.0
+margin_right = 20.5812
 margin_bottom = 16.5
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 1, 0, 0, 1 )
 text = "This is a test"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -207.555
+margin_top = 182.346
+margin_right = 1712.45
+margin_bottom = 232.346
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.443137, 0.443137, 0.443137, 1 )
+text = "Press [enter] or [space]."
 __meta__ = {
 "_edit_use_anchors_": false
 }

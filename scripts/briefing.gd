@@ -37,7 +37,7 @@ func _ready():
 	
 func _process(delta):
 	if parent.state == parent.BRIEF:
-		if Input.is_action_just_pressed("escape"):
+		if Input.is_action_just_pressed("escape") or Input.is_action_just_pressed("action"):
 			advance_speech()
 	
 func done():

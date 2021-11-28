@@ -306,6 +306,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -960.002
+margin_top = -50.0
+margin_right = 960.002
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0.443137, 0.443137, 0.443137, 1 )
+text = "Press [enter] or [space] to skip ahead."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="PlayerTileMap" type="TileMap" parent="."]
 tile_set = SubResource( 21 )
 cell_size = Vector2( 350, 300 )

@@ -1,5 +1,35 @@
-Entry for GameOff 2021
-Made with Godot
+# Buggers!
+
+Defend the Bugger hive from an invasion of the malevolent Enders! Can your tiny starfighter repel the alien threat?
+
+<insert gif>
+<screenshot>
+
+Buggers was made for GameOff 2021. This is my second time doing GameOff, and second attempt at a Godot based game.
+
+[Github](https://github.com/intrepidhero-coder/gameoff2021)
+
+[Itch.io](https://intrepidhero.itch.io/buggers)
+
+[Youtube](https://www.youtube.com/watch?v=MW8t2pYca2Q&list=PLSOtptofsup9AqbbuhpkG4wPBe88roEKk)
+
+
+## Controls
+
+Play in the browser with fullscreen.
+
+Keyboard controls:
+
+    - Movement: WASD or arrows
+    - Fire: Spacebar
+    - Targeting: R (nearest), T/Y (cycle forward/back) 
+
+
+
+
+## Project Management
+
+Yeah.
 
 
 [X] spawn baddies according to mission events
@@ -35,6 +65,21 @@ Made with Godot
 [/] draw mothership
 [/] add mothership scene
 [/] place scores on mission screen
+[/] replace escape key
+[/] computer shows target health
+Missions
+[/] revamp patrol mission
+[/] defend mothership during evac
+[/] Destroy squadron
+[/] Destroy starship
+
+[/] more key hints
+[/] Cover image
+[/] icon
+[/] Description
+[/] add license
+[/] Take screenshots
+[/] make gif
 
 [ ] support game controller
 [ ] in game music
@@ -44,20 +89,7 @@ Made with Godot
 [ ] add standard wingmen
 [ ] Fix parallax background. Looks like there are multiple layers that toggle on/off?!
 
-[/] replace escape key
-[/] computer shows target health
-
-[/] revamp patrol mission
-[/] defend mothership during evac
-[/] Destroy squadron
-[/] Destroy starship
-
-[/] more key hints
-[ ] Take screenshots
-[ ] make gif
-[/] Cover image
-[/] icon
-[/] Description
+[/] Upload rev 1 zipfile
+[ ] update README with page content
 [ ] submit
-[ ] add license
 

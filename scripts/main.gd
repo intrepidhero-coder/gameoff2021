@@ -146,6 +146,8 @@ func spawn_event(event):
 			s.init(event["position"] + offset)
 		s.show()
 		add_child(s)
+		if "action" in event and event["action"] == "player_target":
+			$Player.target = s
 
 func _on_MissionResultTimer_timeout():
 	setup_state(MENU)

@@ -54,6 +54,7 @@ func pewpewdie():
 	newBullet.velocity = Vector2(sin(attitude), -cos(attitude)) * newBullet.speed
 	newBullet.rotation = attitude
 	newBullet.speed = 1000
+	newBullet.damage = 50
 	newBullet.collision_layer = 256
 	newBullet.collision_mask = 2
 	newBullet.source = self

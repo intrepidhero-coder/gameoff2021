@@ -12,7 +12,6 @@ var events = [
 		"scene": "Beacon",
 		"number": 4,
 		"position": Vector2(1000, 0),
-		"action": null,
 		"triggered": false
 	},
 	{

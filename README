@@ -34,6 +34,7 @@ Made with Godot
 [/] explosion sounds
 [/] draw mothership
 [/] add mothership scene
+[/] place scores on mission screen
 
 [ ] support game controller
 [ ] in game music
@@ -43,13 +44,16 @@ Made with Godot
 [ ] add standard wingmen
 [ ] Fix parallax background. Looks like there are multiple layers that toggle on/off?!
 
-[ ] revamp patrol mission
+[ ] replace escape key
+[ ] computer shows target health
+
+[/] revamp patrol mission
 [ ] defend mothership during evac
 [ ] Destroy squadron
 [ ] Destroy starship
-[ ] place scores on mission screen
 
 [ ] Take screenshots
+[ ] make gif
 [ ] Cover image
 [ ] Description
 [ ] submit

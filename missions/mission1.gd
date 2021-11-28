@@ -13,7 +13,7 @@ var events = [
 		"kind": "spawn",
 		"scene": "Beacon",
 		"number": 1,
-		"position": Vector2(1000, 0),
+		"position": Vector2(2000, 0),
 		"action": "player_target",
 		"triggered": false
 	},
@@ -27,12 +27,12 @@ var events = [
 		"triggered": false
 	},
 	{
-		"after": {"group": "Player", "position": Vector2(1000, 0)},
+		"after": {"group": "Player", "position": Vector2(2000, 0)},
 		"groups": [],
 		"kind": "spawn",
 		"scene": "FlockController",
 		"number": 1,
-		"position": Vector2(1000, 0),
+		"position": Vector2(2000, 0),
 		"args": {"N":10, "groups": ["green", "allies"]},
 		"triggered": false
 	},
@@ -40,13 +40,34 @@ var events = [
 		"after": {"group": "alpha", "dead": true},
 		"groups": ["beta", "baddies"],
 		"kind": "spawn",
-		"scene": "Dr",
-		"number": 1,
-		"position": Vector2(0, 0),
+		"scene": "Baddie",
+		"number": 10,
+		"position": Vector2(-500, 0),
 		"triggered": false
 	},
 	{
-		"after": {"group": "beta", "dead": true},
+		"triggered": false,
+		"after": {"group": "green", "dead": true},
+		"kind": "message",
+		"message": "Get to the hyper-beacon to escape!",
+	},
+	{
+		"after": {"group": "green", "dead": true},
+		"groups": ["neutral"],
+		"kind": "spawn",
+		"scene": "Beacon",
+		"number": 1,
+		"position": Vector2(10000, 0),
+		"action": "player_target",
+		"triggered": false
+	},
+	{
+		"after": {"group": "gamma", "dead": true},
+		"kind": "win",
+		"triggered": false
+	},
+	{
+		"after": {"group": "Player", "position": Vector2(10000, 0)},
 		"kind": "win",
 		"triggered": false
 	}

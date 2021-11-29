@@ -26,6 +26,9 @@ func fire(gun, target):
 	# fire a littleDr from gun to target (nodes with world_position)
 	self.gun = gun
 	self.target = target
+	var player = get_node("../Player")
+	world_position = target.world_position
+	position = world_position - player.world_position
 
 func _process(delta):
 	var player = get_node("../Player")
@@ -51,7 +54,6 @@ func _process(delta):
 func _on_Bullet_area_entered(area):
 	hits += 1
 	if hits <= HITLIMIT:
-		$EffectTime.start()
 		# duplicate the CollisionShape (up to a limit)
 		# and set the position to the target
 		var d = $CollisionShape2D.duplicate()
@@ -67,6 +69,6 @@ func _on_BeamTime_timeout():
 	# start the effect animation
 	for l in lines:
 		l.hide()
-
-func _on_EffectTime_timeout():
 	queue_free()
+
+
